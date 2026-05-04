@@ -3,9 +3,9 @@
 
 #define AUDIO_IN_PIN  A0   // ADC input
 #define AUDIO_OUT_PIN A2   // DAC output
-#define knob1 A1   // bitcrush depth knob
-#define knob2 A3   // pitch shift knob
-#define knob3 A4   // FM depth knob
+#define knob1         A1   // bitcrush depth knob
+#define knob2         A3   // pitch shift knob
+#define knob3         A4   // FM depth knob
 
 #define SAMPLE_RATE  44100
 #define BUFFER_SIZE  512
