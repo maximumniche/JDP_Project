@@ -1,4 +1,9 @@
 
+// A1, (ADC1, 2) (knob 1 for bitcrush)
+// A4, (ADC1, 7) (knob 2 for pitch shifting)
+// A5, (ADC1, 6) (knob 3 for frequency modulation)
+
+
 #include <Arduino.h>
 #include <HardwareTimer.h>
 
@@ -67,7 +72,7 @@ void audioISR() {
     knobDivider++;
     if (knobDivider >= 256) {
         knobDivider = 0;
-        uint16_t k1 = adc_read(ADC1, 2);              // PA1 = ADC1_IN2
+        uint16_t k1 = adc_read(ADC1, 2); // PA1 = ADC1_IN2
         crushFactor = (int)((k1 / 4095.0f) * 19.0f) + 1;  // 1~20
     }
 
