@@ -1,7 +1,11 @@
-// A1, (ADC1, 2) (knob 1 for bitcrush)
-// A4, (ADC1, 7) (knob 2 for pitch shifting)
-// A5, (ADC1, 6) (knob 3 for frequency modulation)
-// D9 = PWM1, D10=PWM2, D8=Button/Knob
+// A1 is potentiometer 1 for bitcrushing
+// A4, is potentiometer 2 for pitch shift
+// A5 is potentiometer for frequency modulation
+// A0 is input into ADC
+// A2 is DAC output
+// D9 = PWM1, D10=PWM2, D11=Button/Knob
+// D8 is Uart0_tx, what's used for sending the data to the LCD (Serial1)
+// Serial = Serial2 is serial monitor uart
 
 #include <Arduino.h>
 #include <HardwareTimer.h>
@@ -12,17 +16,35 @@
 
 HardwareTimer *audioTimer;
 
-/* ------------------------- // Function definitions ------------------------ */
+/* -------------------------------------------------------------------------- */
+/*                           // Function Definitions                          */
+/* -------------------------------------------------------------------------- */
 static uint16_t adc_read(ADC_TypeDef *adc, uint8_t ch);
 static void adc_init(ADC_TypeDef *adc);
 static void dac_init();
 void audioISR();
 
-/* ------------------------------ // Constants ------------------------------ */
-//  PWM LPF 
+int coordsToPos(int x, int y);
+void goToPos(int x, int y);
+void writeAtPos(int x, int y, int symbol);
+void drawColLine(int column, int symbol);
+void drawRowLine(int row, int symbol);
+void writeStrAtPos(int x, int y, String data);
+float samplePin(int pin, int numSamples);
+void setupLCD();
+
+/* -------------------------------------------------------------------------- */
+/*                                // Constants                                */
+/* -------------------------------------------------------------------------- */
+
+int pitchPin = A4;
+int srPin = A1;
+int modPin = A5;
+
+/* ------------------------------- //  PWM LPF ------------------------------ */
 #define pwm1   D9
 #define pwm2   D10
-#define BUTTON D8
+#define BUTTON D11
 
 const int cutoffFreq[16] = {12000, 8721, 6338, 4606,
                            3348, 2433, 1768, 1285,
@@ -45,7 +67,7 @@ volatile int writeIndex = 0;
 float readIndex = 0.0f;
 
 
-//  FX 
+/* -- // Custom Effects (Pitch shift, sampling rate, frequency modulation) -- */
 int   crushFactor = 1;
 int   holdCounter = 0;
 int16_t crushedSample = 0;
@@ -59,6 +81,9 @@ int knobDiv = 0;
 
 //  SETUP 
 void setup() {
+
+    Serial.begin(9600);
+    Serial1.begin(9600);
 
     // GPIO + ADC
     RCC->AHBENR |= RCC_AHBENR_GPIOAEN | RCC_AHBENR_ADC12EN;
@@ -82,14 +107,18 @@ void setup() {
     analogWrite(pwm1, pwm1value[currentStep]);
     analogWrite(pwm2, pwm2value[currentStep]);
 
-    Serial.begin(9600);
     Serial.println("LPF Ready");
+
+
+    // Setup the LCD
+    setupLCD();
 
     //  audio timer 
     audioTimer = new HardwareTimer(TIM2);
     audioTimer->setOverflow(SAMPLE_RATE, HERTZ_FORMAT);
     audioTimer->attachInterrupt(audioISR);
     audioTimer->resume();
+
 }
 
 
@@ -109,6 +138,36 @@ void loop() {
     }
 
     prevButtonState = buttonState;
+
+    audioTimer->pause();
+    int pitchValRaw = adc_read(ADC1, 7);   // A4, channel 7
+    int sampleRateValRaw = adc_read(ADC1, 2); // A1, channel 2
+    int modulationValRaw = adc_read(ADC1, 6); // A5, channel 6
+    audioTimer->resume();
+
+    // Divide by smaller value so we can reach max, subtract by offset so we can reach by min because of imperfection of potentiometers
+    float pitchVal = (4095.0 - pitchValRaw - 100) * 100 / 3900;
+    float sampleRateVal = (4095.0 - sampleRateValRaw) * 100 / 3900;
+    float modulationVal = (4095.0 - modulationValRaw) * 100 / 3900;
+
+    pitchVal = constrain(pitchVal, 0.0, 100.0);
+    sampleRateVal = constrain(sampleRateVal, 0.0, 100.0);
+    modulationVal = constrain(modulationVal, 0.0, 100.0);
+
+    String pitchValStr = String(pitchVal, 2);
+    String sampleRateValStr = String(sampleRateVal, 2);
+    String modulationValStr = String(modulationVal, 2);
+
+    // Clamp the size
+    pitchValStr = pitchValStr.substring(0, 5);
+    sampleRateValStr = sampleRateValStr.substring(0, 5);
+    modulationValStr = modulationValStr.substring(0, 5);
+
+
+    writeStrAtPos(1, 2, pitchValStr);
+    writeStrAtPos(7, 2, sampleRateValStr);
+    writeStrAtPos(13, 2, modulationValStr);
+
     delay(50);
 }
 
@@ -226,4 +285,91 @@ void audioISR() {
     if (out < 0) out = 0;
 
     dac_write((uint16_t)out);
+}
+
+// Map LCD coordinates on display to their location number. Coordinates start at (0,0) top left, end at (20, 4) in bottom right
+int coordsToPos(int x, int y) {
+    int rowOffsets[] = {0x00, 0x40, 0x14, 0x54};
+
+    int position = rowOffsets[y] + x;
+
+    return position;
+
+}
+
+void goToPos(int x, int y) {
+    Serial1.write(0xFE);
+    Serial1.write(0x45);
+    Serial1.write(coordsToPos(x, y));
+}
+
+void writeStrAtPos(int x, int y, String data) {
+    goToPos(x, y);
+    Serial1.print(data);
+}
+
+void writeAtPos(int x, int y, int symbol) {
+    goToPos(x, y);
+    Serial1.write(symbol);
+}
+
+void drawColLine(int column, int symbol) {
+
+    for (int i=0; i < 4; i++) {
+
+        writeAtPos(column, i, symbol);
+        
+    }
+
+}
+
+void drawRowLine(int row, int symbol) {
+
+    for (int i=0; i < 20; i++) {
+        
+        writeAtPos(i, row, symbol);
+        
+    }
+
+}
+
+float samplePin(int pin, int numSamples) {
+
+    float value = 0;
+
+    for (int i=0; i < numSamples; i++) {
+        value += analogRead(pin);
+    }
+
+    float avgValue = value / numSamples;
+
+    return avgValue;
+
+}
+
+void setupLCD() {
+
+    // Clear LCD
+    Serial1.write(0xFE);
+    Serial1.write(0x51);
+
+    // Write knob information
+    Serial1.write(0xFE);
+    Serial1.write(0x45);
+    Serial1.write(0x41);
+    Serial1.write("Pitch ");
+    Serial1.write("SR    ");
+    Serial1.write("Mod  ");
+
+    drawRowLine(0, '=');
+    drawRowLine(3, '=');
+
+    drawColLine(0, '|');
+    drawColLine(6, '|');
+    drawColLine(12, '|');
+    drawColLine(19, '|');
+
+    writeAtPos(0, 0, 0xAF);
+    writeAtPos(19, 3, 0xAF);
+
 }
