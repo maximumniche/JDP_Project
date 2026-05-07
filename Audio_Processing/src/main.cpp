@@ -3,7 +3,7 @@
 // A5 is potentiometer for frequency modulation
 // A0 is input into ADC
 // A2 is DAC output
-// D9 = PWM1, D10=PWM2, D11=Button/Knob
+// D9 = PWM1, D10=PWM2, D3 (CLK)and D4 (DT) for rotary encoder
 // D8 is Uart0_tx, what's used for sending the data to the LCD (Serial1)
 // Serial = Serial2 is serial monitor uart
 
@@ -47,7 +47,9 @@ volatile uint16_t k1_raw, k2_raw, k3_raw;
 /* ------------------------------- //  PWM LPF ------------------------------ */
 #define pwm1   D9
 #define pwm2   D10
-#define BUTTON D11
+// rotary encoder pins
+#define ENC_A D3 // CLK
+#define ENC_B D4 // DT
 
 const int cutoffFreq[16] = {12000, 8721, 6338, 4606,
                            3348, 2433, 1768, 1285,
@@ -60,8 +62,9 @@ const int pwm1value[16] = {1556,1064,737,491,348,266,184,143,
 const int pwm2value[16] = {1064,778,532,368,286,225,163,131,
                           102,86,71,62,54,49,45,42};
 
-int currentStep = 0;
-int prevButtonState = HIGH;
+volatile int currentStep  = 0;
+volatile int encLastA     = HIGH;
+volatile bool stepDirty   = false;  // flag: encoder moved, update PWM in loop()
 
 
 //  BUFFER 
@@ -81,6 +84,21 @@ float fmDepth = 0.0f;
 float lfoPhase = 0.0f;
 
 int knobDiv = 0;
+
+// for rotary encoder
+void encoderISR() {
+    int a = digitalRead(ENC_A);
+    int b = digitalRead(ENC_B);
+
+    if (a != encLastA) {
+        encLastA = a;
+        if (a == LOW) {
+            if (b == HIGH) currentStep = constrain(currentStep + 1, 0, 15);
+            else           currentStep = constrain(currentStep - 1, 0, 15);
+            stepDirty = true;
+        }
+    }
+}
 
 //  SETUP 
 void setup() {
@@ -102,8 +120,6 @@ void setup() {
     adc_init(ADC1);
     dac_init();
 
-    //  PWM LPF 
-    pinMode(BUTTON, INPUT_PULLUP);
 
     analogWriteResolution(12);
     analogWriteFrequency(17578);
@@ -112,6 +128,11 @@ void setup() {
     analogWrite(pwm2, pwm2value[currentStep]);
 
     Serial.println("LPF Ready");
+
+    //rotary encoder
+    pinMode(ENC_A, INPUT_PULLUP);
+    pinMode(ENC_B, INPUT_PULLUP);
+    attachInterrupt(digitalPinToInterrupt(ENC_A), encoderISR, CHANGE);
 
 
     // Setup the LCD
@@ -129,20 +150,14 @@ void setup() {
 //  LOOP (PWM control) 
 void loop() {
 
-    int buttonState = digitalRead(BUTTON);
-
-    if (buttonState == LOW && prevButtonState == HIGH) {
-        currentStep = (currentStep + 1) % 16;
-
-        analogWrite(pwm1, pwm1value[currentStep]);
-        analogWrite(pwm2, pwm2value[currentStep]);
-
-        Serial.print("Cutoff: ");
-        Serial.println(cutoffFreq[currentStep]);
-    }
-
-    prevButtonState = buttonState;
-
+    if (stepDirty) {
+    stepDirty = false;
+    int s = currentStep;
+    analogWrite(pwm1, pwm1value[s]);
+    analogWrite(pwm2, pwm2value[s]);
+    Serial.print("Cutoff: ");
+    Serial.println(cutoffFreq[s]);
+}
     int pitchValRaw = k2_raw;   // A4, channel 7
     int sampleRateValRaw = k1_raw; // A1, channel 2
     int modulationValRaw = k3_raw; // A5, channel 6
