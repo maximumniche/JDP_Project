@@ -8,12 +8,12 @@
 #define BUFFER_SIZE  512
 
 // effects state 
-extern int     crushFactor;
-extern float   pitchSpeed;
-extern float   fmDepth;
+extern volatile int crushFactor;
+extern volatile float pitchSpeed;
+extern volatile float fmDepth;
 
 // raw knob values for LCD display
-extern volatile uint16_t k1_raw, k2_raw, k3_raw;
+extern volatile uint16_t k1, k2, k3;
 
 void     audio_init();
 void     audioISR();
@@ -22,3 +22,5 @@ static uint16_t adc_read(ADC_TypeDef *adc, uint8_t ch);
 static void     adc_init(ADC_TypeDef *adc);
 static void     dac_init();
 static inline void dac_write(uint16_t v);
+
+void knobChanges();

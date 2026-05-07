@@ -40,12 +40,15 @@ void loop() {
         lpf_update(currentStep);
         Serial.print("Cutoff: ");
         Serial.println(cutoffFreq[currentStep]);
+
     }
 
-    // convert raw knob values to 0~100 for display
-    float pitchVal = constrain((4095.0f - k2_raw - 100) * 100 / 3900, 0.0f, 100.0f);
-    float srVal    = constrain((4095.0f - k1_raw)       * 100 / 3900, 0.0f, 100.0f);
-    float modVal   = constrain((4095.0f - k3_raw)       * 100 / 3900, 0.0f, 100.0f);
+    knobChanges();
+
+    // Display knob values based on what they are
+    float pitchVal = pitchSpeed;
+    float srVal = crushFactor;
+    float modVal = fmDepth;
 
     lcd_update(pitchVal, srVal, modVal);
 

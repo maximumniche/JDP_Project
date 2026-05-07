@@ -6,8 +6,8 @@ volatile bool stepDirty   = false;
 static volatile int encLastA = HIGH;
 
 void encoderISR() {
-    int a = digitalRead(ENC_A);
-    int b = digitalRead(ENC_B);
+    int a = digitalRead(CLK_PIN);
+    int b = digitalRead(DT_PIN);
 
     if (a != encLastA) {
         encLastA = a;
@@ -20,7 +20,7 @@ void encoderISR() {
 }
 
 void encoder_init() {
-    pinMode(ENC_A, INPUT_PULLUP);
-    pinMode(ENC_B, INPUT_PULLUP);
-    attachInterrupt(digitalPinToInterrupt(ENC_A), encoderISR, CHANGE);
+    pinMode(CLK_PIN, INPUT_PULLUP);
+    pinMode(DT_PIN, INPUT_PULLUP);
+    attachInterrupt(digitalPinToInterrupt(CLK_PIN), encoderISR, FALLING);
 }

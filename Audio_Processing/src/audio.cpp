@@ -7,17 +7,16 @@ int16_t buffer[BUFFER_SIZE];
 volatile int writeIndex = 0;
 float readIndex = 0.0f;
 
-int     crushFactor   = 1;
-int     holdCounter   = 0;
-int16_t crushedSample = 0;
+volatile int crushFactor   = 1;
+int holdCounter = 0;
+volatile int16_t crushedSample = 0;
 
-float pitchSpeed = 1.0f;
-float fmDepth    = 0.0f;
-float lfoPhase   = 0.0f;
+volatile uint16_t k1, k2, k3;
 
-int knobDiv = 0;
+volatile float pitchSpeed = 1.0f;
+volatile float lfoPhase   = 0.0f;
+volatile float fmDepth    = 0.0f;
 
-volatile uint16_t k1_raw, k2_raw, k3_raw;
 
 //  ADC
 static uint16_t adc_read(ADC_TypeDef *adc, uint8_t ch) {
@@ -84,25 +83,21 @@ void audio_init() {
     dac_init();
 }
 
+// Knob modifications
+void knobChanges() {
+    noInterrupts();
+    k1 = adc_read(ADC1, 2);  // bitcrush  A1 ch2
+    k2 = adc_read(ADC1, 7);  // pitch     A4 ch7
+    k3 = adc_read(ADC1, 6);  // FM        A5 ch6
+
+    crushFactor = (k1 * 19) / 4095 + 1;
+    pitchSpeed  = 0.5f + (k2 / 4095.0f) * 1.5f;
+    fmDepth     = (k3 / 4095.0f) * 0.8f;
+    interrupts();
+}
+
 //  ISR
 void audioISR() {
-    // read knobs every 256 samples (~172 Hz)
-    knobDiv++;
-    if (knobDiv >= 256) {
-        knobDiv = 0;
-
-        uint16_t k1 = adc_read(ADC1, 2);  // bitcrush  A1 ch2
-        uint16_t k2 = adc_read(ADC1, 7);  // pitch     A4 ch7
-        uint16_t k3 = adc_read(ADC1, 6);  // FM        A5 ch6
-
-        crushFactor = (k1 * 19) / 4095 + 1;
-        pitchSpeed  = 0.5f + (k2 / 4095.0f) * 1.5f;
-        fmDepth     = (k3 / 4095.0f) * 0.8f;
-
-        k1_raw = k1;
-        k2_raw = k2;
-        k3_raw = k3;
-    }
 
     // audio input (ch1 = PA0 = A0)
     int input = adc_read(ADC1, 1);
@@ -112,7 +107,8 @@ void audioISR() {
     holdCounter++;
     if (holdCounter >= crushFactor) {
         holdCounter   = 0;
-        crushedSample = centered;
+        // crushedSample = centered;
+        crushedSample = input;
     }
 
     // write ring buffer
@@ -123,6 +119,7 @@ void audioISR() {
     lfoPhase += (5.0f / SAMPLE_RATE);
     if (lfoPhase >= 1.0f) lfoPhase -= 1.0f;
     float lfo = sinf(lfoPhase * 6.28318f);
+    // float lfo = (lfoPhase < 0.5f) ? (lfoPhase * 4.0f - 1.0f) : (3.0f - lfoPhase * 4.0f);
 
     // pitch + FM modulation
     float modSpeed = pitchSpeed + lfo * fmDepth;
@@ -138,7 +135,7 @@ void audioISR() {
     float frac = readIndex - i0;
 
     float out = buffer[i0] * (1.0f - frac) + buffer[i1] * frac;
-    out += 2048.0f;
+    // out += 2048.0f;
     if (out > 4095) out = 4095;
     if (out < 0)    out = 0;
 

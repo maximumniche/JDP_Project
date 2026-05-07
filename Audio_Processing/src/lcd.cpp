@@ -39,7 +39,7 @@ void lcd_setup() {
     Serial1.write(0x45);
     Serial1.write(0x41);
     Serial1.write("Pitch ");
-    Serial1.write("SR    ");
+    Serial1.write("BC    ");
     Serial1.write("Mod  ");
 
     drawRowLine(0, '=');

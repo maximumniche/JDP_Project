@@ -2,8 +2,8 @@
 #include <Arduino.h>
 
 // CLK → D3, DT → D4
-#define ENC_A D3
-#define ENC_B D4
+#define CLK_PIN D3
+#define DT_PIN D4
 
 extern volatile int  currentStep;
 extern volatile bool stepDirty;   // true when encoder moved, cleared in loop()
