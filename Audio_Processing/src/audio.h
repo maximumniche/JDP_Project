@@ -12,6 +12,8 @@ extern volatile int crushFactor;
 extern volatile float pitchSpeed;
 extern volatile float fmDepth;
 
+extern volatile int useAnalog;
+
 static void i2s_init(void);
 void SPI2_IRQHandler(void);
 

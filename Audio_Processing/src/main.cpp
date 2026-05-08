@@ -57,5 +57,4 @@ void loop() {
 
     get_keyboard_data();
 
-    delay(50);
 }

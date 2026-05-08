@@ -18,6 +18,7 @@ volatile uint16_t k1, k2, k3;
 volatile float pitchSpeed = 1.0f;
 volatile float lfoPhase   = 0.0f;
 volatile float fmDepth    = 0.0f;
+volatile int useAnalog = 1;
 
 // Bluetooth I2S audio
 // I2S2_CK = PB13, I2S2_WS = PB12, I2S2ext_SD = PB14, I2S2SD = PB15
@@ -149,11 +150,13 @@ void knobChanges() {
     pitchSpeed  = 0.5f + (k2 / 4095.0f) * 1.5f;
     fmDepth = (k3 / 4095.0f) * 0.8f;
 
-    if (fmDepth < 0.05f) {
+    useAnalog = digitalRead(PB7);
+
+    if (fmDepth < 0.08f) {
         fmDepth = 0.0f;
     }
 
-    if (pitchSpeed > 0.92 && pitchSpeed < 1.08) {
+    if (pitchSpeed > 0.90 && pitchSpeed < 1.10) {
         pitchSpeed = 1.0f;
     }
 
@@ -168,8 +171,8 @@ void audioISR() {
     // int input = adc_read(ADC1, 1);
     // int16_t centered = (int16_t)input - 2048;
 
-    // Bluetooth input
-    int input = i2s_read();
+    // Switch between I2S bluetooth input and analog input
+    int input = useAnalog ? adc_read(ADC1, 1) : i2s_read();
 
     // dac_write(input);
 

@@ -4138,7 +4138,7 @@ Linker script and memory map
                 0x08000000                g_pfnVectors
                 0x08000194                        . = ALIGN (0x4)
 
-.text           0x080001a0     0x9fd8
+.text           0x080001a0     0x9fc8
                 0x080001a0                        . = ALIGN (0x4)
  *(.text)
  .text          0x080001a0      0x378 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
@@ -4888,731 +4888,734 @@ Linker script and memory map
                 0x080065b0                _kill
  .text._getpid  0x080065c0        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/syscalls.c.o
                 0x080065c0                _getpid
+ .text._ZL8adc_readP11ADC_TypeDefh.constprop.0
+                0x080065c4       0x26 .pio/build/nucleo_f303re/src/audio.cpp.o
+ *fill*         0x080065ea        0x2 
  .text._Z10audio_initv
-                0x080065c4      0x1a4 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x080065c4                audio_init()
+                0x080065ec      0x1a4 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x080065ec                audio_init()
  .text._Z11knobChangesv
-                0x08006768      0x154 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x08006768                knobChanges()
+                0x08006790      0x108 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x08006790                knobChanges()
  .text._Z8audioISRv
-                0x080068bc      0x228 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x080068bc                audioISR()
+                0x08006898      0x244 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x08006898                audioISR()
  .text._Z10encoderISRv
-                0x08006ae4       0x5c .pio/build/nucleo_f303re/src/encoder.cpp.o
-                0x08006ae4                encoderISR()
+                0x08006adc       0x5c .pio/build/nucleo_f303re/src/encoder.cpp.o
+                0x08006adc                encoderISR()
  .text._Z12encoder_initv
-                0x08006b40       0x5c .pio/build/nucleo_f303re/src/encoder.cpp.o
-                0x08006b40                encoder_init()
+                0x08006b38       0x5c .pio/build/nucleo_f303re/src/encoder.cpp.o
+                0x08006b38                encoder_init()
  .text._Z13keyboard_initv
-                0x08006b9c       0x20 .pio/build/nucleo_f303re/src/keyboard.cpp.o
-                0x08006b9c                keyboard_init()
+                0x08006b94       0x20 .pio/build/nucleo_f303re/src/keyboard.cpp.o
+                0x08006b94                keyboard_init()
  .text._Z17get_keyboard_datav
-                0x08006bbc       0x50 .pio/build/nucleo_f303re/src/keyboard.cpp.o
-                0x08006bbc                get_keyboard_data()
+                0x08006bb4       0x50 .pio/build/nucleo_f303re/src/keyboard.cpp.o
+                0x08006bb4                get_keyboard_data()
  .text._ZN14HardwareSerial5writeEi.isra.0
-                0x08006c0c        0x8 .pio/build/nucleo_f303re/src/lcd.cpp.o
+                0x08006c04        0x8 .pio/build/nucleo_f303re/src/lcd.cpp.o
  .text._ZN5Print5writeEPKc.isra.0
-                0x08006c14       0x20 .pio/build/nucleo_f303re/src/lcd.cpp.o
+                0x08006c0c       0x20 .pio/build/nucleo_f303re/src/lcd.cpp.o
  .text._Z11coordsToPosii
-                0x08006c34       0x28 .pio/build/nucleo_f303re/src/lcd.cpp.o
-                0x08006c34                coordsToPos(int, int)
+                0x08006c2c       0x28 .pio/build/nucleo_f303re/src/lcd.cpp.o
+                0x08006c2c                coordsToPos(int, int)
  .text._Z7goToPosii
-                0x08006c5c       0x30 .pio/build/nucleo_f303re/src/lcd.cpp.o
-                0x08006c5c                goToPos(int, int)
+                0x08006c54       0x30 .pio/build/nucleo_f303re/src/lcd.cpp.o
+                0x08006c54                goToPos(int, int)
  .text._Z13writeStrAtPosii6String
-                0x08006c8c       0x18 .pio/build/nucleo_f303re/src/lcd.cpp.o
-                0x08006c8c                writeStrAtPos(int, int, String)
+                0x08006c84       0x18 .pio/build/nucleo_f303re/src/lcd.cpp.o
+                0x08006c84                writeStrAtPos(int, int, String)
  .text._Z10writeAtPosiii
-                0x08006ca4       0x18 .pio/build/nucleo_f303re/src/lcd.cpp.o
-                0x08006ca4                writeAtPos(int, int, int)
+                0x08006c9c       0x18 .pio/build/nucleo_f303re/src/lcd.cpp.o
+                0x08006c9c                writeAtPos(int, int, int)
  .text._Z11drawColLineii
-                0x08006cbc       0x1a .pio/build/nucleo_f303re/src/lcd.cpp.o
-                0x08006cbc                drawColLine(int, int)
+                0x08006cb4       0x1a .pio/build/nucleo_f303re/src/lcd.cpp.o
+                0x08006cb4                drawColLine(int, int)
  .text._Z11drawRowLineii
-                0x08006cd6       0x1a .pio/build/nucleo_f303re/src/lcd.cpp.o
-                0x08006cd6                drawRowLine(int, int)
+                0x08006cce       0x1a .pio/build/nucleo_f303re/src/lcd.cpp.o
+                0x08006cce                drawRowLine(int, int)
  .text._Z9lcd_setupv
-                0x08006cf0       0x9c .pio/build/nucleo_f303re/src/lcd.cpp.o
-                0x08006cf0                lcd_setup()
+                0x08006ce8       0x9c .pio/build/nucleo_f303re/src/lcd.cpp.o
+                0x08006ce8                lcd_setup()
  .text._Z10lcd_updatefff
-                0x08006d8c       0xdc .pio/build/nucleo_f303re/src/lcd.cpp.o
-                0x08006d8c                lcd_update(float, float, float)
+                0x08006d84       0xdc .pio/build/nucleo_f303re/src/lcd.cpp.o
+                0x08006d84                lcd_update(float, float, float)
  .text._Z8lpf_initv
-                0x08006e68       0x28 .pio/build/nucleo_f303re/src/lpf.cpp.o
-                0x08006e68                lpf_init()
+                0x08006e60       0x28 .pio/build/nucleo_f303re/src/lpf.cpp.o
+                0x08006e60                lpf_init()
  .text._Z10lpf_updatei
-                0x08006e90       0x28 .pio/build/nucleo_f303re/src/lpf.cpp.o
-                0x08006e90                lpf_update(int)
- .text.setup    0x08006eb8       0xa4 .pio/build/nucleo_f303re/src/main.cpp.o
-                0x08006eb8                setup
- .text.loop     0x08006f5c       0x7c .pio/build/nucleo_f303re/src/main.cpp.o
-                0x08006f5c                loop
+                0x08006e88       0x28 .pio/build/nucleo_f303re/src/lpf.cpp.o
+                0x08006e88                lpf_update(int)
+ .text.setup    0x08006eb0       0xa4 .pio/build/nucleo_f303re/src/main.cpp.o
+                0x08006eb0                setup
+ .text.loop     0x08006f54       0x74 .pio/build/nucleo_f303re/src/main.cpp.o
+                0x08006f54                loop
  .text._ZN5Print17availableForWriteEv
-                0x08006fd8        0x4 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08006fd8                Print::availableForWrite()
+                0x08006fc8        0x4 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08006fc8                Print::availableForWrite()
  .text._ZN7TwoWire9availableEv
-                0x08006fdc        0x8 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08006fdc                TwoWire::available()
+                0x08006fcc        0x8 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08006fcc                TwoWire::available()
  .text._ZN7TwoWire4readEv
-                0x08006fe4       0x1a .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08006fe4                TwoWire::read()
+                0x08006fd4       0x1a .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08006fd4                TwoWire::read()
  .text._ZN7TwoWire4peekEv
-                0x08006ffe       0x12 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08006ffe                TwoWire::peek()
+                0x08006fee       0x12 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08006fee                TwoWire::peek()
  .text._ZN7TwoWire16onRequestServiceEP5i2c_s
-                0x08007010       0x16 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08007010                TwoWire::onRequestService(i2c_s*)
- *fill*         0x08007026        0x2 
+                0x08007000       0x16 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08007000                TwoWire::onRequestService(i2c_s*)
+ *fill*         0x08007016        0x2 
  .text._ZN7TwoWireC2Emm
-                0x08007028       0xcc .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08007028                TwoWire::TwoWire(unsigned long, unsigned long)
-                0x08007028                TwoWire::TwoWire(unsigned long, unsigned long)
+                0x08007018       0xcc .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08007018                TwoWire::TwoWire(unsigned long, unsigned long)
+                0x08007018                TwoWire::TwoWire(unsigned long, unsigned long)
  .text._ZN7TwoWire3endEv
-                0x080070f4       0x28 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x080070f4                TwoWire::end()
+                0x080070e4       0x28 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x080070e4                TwoWire::end()
  .text._ZN7TwoWireD2Ev
-                0x0800711c       0x28 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x0800711c                TwoWire::~TwoWire()
-                0x0800711c                TwoWire::~TwoWire()
+                0x0800710c       0x28 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x0800710c                TwoWire::~TwoWire()
+                0x0800710c                TwoWire::~TwoWire()
  .text._ZN7TwoWire16allocateRxBufferEj
-                0x08007144       0x24 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08007144                TwoWire::allocateRxBuffer(unsigned int)
+                0x08007134       0x24 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08007134                TwoWire::allocateRxBuffer(unsigned int)
  .text._ZN7TwoWire16onReceiveServiceEP5i2c_s
-                0x08007168       0x4c .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08007168                TwoWire::onReceiveService(i2c_s*)
+                0x08007158       0x4c .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08007158                TwoWire::onReceiveService(i2c_s*)
  .text._ZN7TwoWire16allocateTxBufferEj
-                0x080071b4       0x32 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x080071b4                TwoWire::allocateTxBuffer(unsigned int)
+                0x080071a4       0x32 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x080071a4                TwoWire::allocateTxBuffer(unsigned int)
  .text._ZN7TwoWire5writeEh
-                0x080071e6       0x42 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x080071e6                TwoWire::write(unsigned char)
+                0x080071d6       0x42 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x080071d6                TwoWire::write(unsigned char)
  .text._ZN7TwoWire5writeEPKhj
-                0x08007228       0x42 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08007228                TwoWire::write(unsigned char const*, unsigned int)
+                0x08007218       0x42 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08007218                TwoWire::write(unsigned char const*, unsigned int)
  .text._ZN7TwoWire13resetRxBufferEv
-                0x0800726a       0x10 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x0800726a                TwoWire::resetRxBuffer()
+                0x0800725a       0x10 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x0800725a                TwoWire::resetRxBuffer()
  .text._ZN7TwoWire13resetTxBufferEv
-                0x0800727a       0x10 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x0800727a                TwoWire::resetTxBuffer()
+                0x0800726a       0x10 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x0800726a                TwoWire::resetTxBuffer()
  .text._ZN7TwoWire15endTransmissionEh
-                0x0800728a       0x44 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x0800728a                TwoWire::endTransmission(unsigned char)
+                0x0800727a       0x44 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x0800727a                TwoWire::endTransmission(unsigned char)
  .text._ZN7TwoWire11requestFromEhhmhh
-                0x080072ce       0x92 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x080072ce                TwoWire::requestFrom(unsigned char, unsigned char, unsigned long, unsigned char, unsigned char)
+                0x080072be       0x92 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x080072be                TwoWire::requestFrom(unsigned char, unsigned char, unsigned long, unsigned char, unsigned char)
  .text._ZN7TwoWire11requestFromEhhh
-                0x08007360       0x12 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08007360                TwoWire::requestFrom(unsigned char, unsigned char, unsigned char)
+                0x08007350       0x12 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08007350                TwoWire::requestFrom(unsigned char, unsigned char, unsigned char)
  .text._ZN7TwoWire11requestFromEii
-                0x08007372        0xa .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08007372                TwoWire::requestFrom(int, int)
+                0x08007362        0xa .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08007362                TwoWire::requestFrom(int, int)
  .text._ZN7TwoWire5flushEv
-                0x0800737c       0x18 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x0800737c                TwoWire::flush()
+                0x0800736c       0x18 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x0800736c                TwoWire::flush()
  .text._ZN7TwoWire10recoverBusEv
-                0x08007394       0xbc .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08007394                TwoWire::recoverBus()
+                0x08007384       0xbc .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08007384                TwoWire::recoverBus()
  .text._ZN7TwoWire5beginEhbb
-                0x08007450       0x9c .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08007450                TwoWire::begin(unsigned char, bool, bool)
+                0x08007440       0x9c .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08007440                TwoWire::begin(unsigned char, bool, bool)
  .text._ZN7TwoWire5beginEb
-                0x080074ec        0xa .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x080074ec                TwoWire::begin(bool)
- *fill*         0x080074f6        0x2 
+                0x080074dc        0xa .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x080074dc                TwoWire::begin(bool)
+ *fill*         0x080074e6        0x2 
  .text.startup._GLOBAL__sub_I__ZN7TwoWireC2Emm
-                0x080074f8       0x10 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x080074e8       0x10 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
  .text.exit._GLOBAL__sub_D__ZN7TwoWireC2Emm
-                0x08007508        0xc .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x080074f8        0xc .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
  .text.i2c_getClkFreq
-                0x08007514       0x74 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007504       0x74 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
  .text.i2c_computeTiming
-                0x08007588      0x23c .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007578      0x23c .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
  .text.i2c_getTiming
-                0x080077c4       0x48 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x080077b4       0x48 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
  .text.i2c_init
-                0x0800780c      0x190 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x0800780c                i2c_init
+                0x080077fc      0x190 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x080077fc                i2c_init
  .text.i2c_deinit
-                0x0800799c       0xa0 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x0800799c                i2c_deinit
+                0x0800798c       0xa0 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x0800798c                i2c_deinit
  .text.i2c_slave_write_IT
-                0x08007a3c       0x34 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007a3c                i2c_slave_write_IT
+                0x08007a2c       0x34 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007a2c                i2c_slave_write_IT
  .text.i2c_master_read
-                0x08007a70       0x8e .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007a70                i2c_master_read
+                0x08007a60       0x8e .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007a60                i2c_master_read
  .text.i2c_IsDeviceReady
-                0x08007afe       0x40 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007afe                i2c_IsDeviceReady
+                0x08007aee       0x40 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007aee                i2c_IsDeviceReady
  .text.i2c_master_write
-                0x08007b3e       0xa2 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007b3e                i2c_master_write
+                0x08007b2e       0xa2 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007b2e                i2c_master_write
  .text.i2c_attachSlaveRxEvent
-                0x08007be0        0xe .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007be0                i2c_attachSlaveRxEvent
+                0x08007bd0        0xe .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007bd0                i2c_attachSlaveRxEvent
  .text.i2c_attachSlaveTxEvent
-                0x08007bee        0xe .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007bee                i2c_attachSlaveTxEvent
+                0x08007bde        0xe .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007bde                i2c_attachSlaveTxEvent
  .text.HAL_I2C_AddrCallback
-                0x08007bfc       0x70 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007bfc                HAL_I2C_AddrCallback
+                0x08007bec       0x70 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007bec                HAL_I2C_AddrCallback
  .text.HAL_I2C_ListenCpltCallback
-                0x08007c6c       0x2a .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007c6c                HAL_I2C_ListenCpltCallback
+                0x08007c5c       0x2a .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007c5c                HAL_I2C_ListenCpltCallback
  .text.HAL_I2C_SlaveRxCpltCallback
-                0x08007c96       0x26 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007c96                HAL_I2C_SlaveRxCpltCallback
+                0x08007c86       0x26 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007c86                HAL_I2C_SlaveRxCpltCallback
  .text.HAL_I2C_SlaveTxCpltCallback
-                0x08007cbc        0x8 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007cbc                HAL_I2C_SlaveTxCpltCallback
+                0x08007cac        0x8 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007cac                HAL_I2C_SlaveTxCpltCallback
  .text.HAL_I2C_ErrorCallback
-                0x08007cc4        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007cc4                HAL_I2C_ErrorCallback
+                0x08007cb4        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007cb4                HAL_I2C_ErrorCallback
  .text.I2C1_EV_IRQHandler
-                0x08007cd0        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007cd0                I2C1_EV_IRQHandler
+                0x08007cc0        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007cc0                I2C1_EV_IRQHandler
  .text.I2C1_ER_IRQHandler
-                0x08007cdc        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007cdc                I2C1_ER_IRQHandler
+                0x08007ccc        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007ccc                I2C1_ER_IRQHandler
  .text.I2C2_EV_IRQHandler
-                0x08007ce8        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007ce8                I2C2_EV_IRQHandler
+                0x08007cd8        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007cd8                I2C2_EV_IRQHandler
  .text.I2C2_ER_IRQHandler
-                0x08007cf4        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007cf4                I2C2_ER_IRQHandler
+                0x08007ce4        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007ce4                I2C2_ER_IRQHandler
  .text.I2C3_EV_IRQHandler
-                0x08007d00        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007d00                I2C3_EV_IRQHandler
+                0x08007cf0        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007cf0                I2C3_EV_IRQHandler
  .text.I2C3_ER_IRQHandler
-                0x08007d0c        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
-                0x08007d0c                I2C3_ER_IRQHandler
+                0x08007cfc        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08007cfc                I2C3_ER_IRQHandler
  .text._ZN14HardwareSerial9availableEv
-                0x08007d18       0x10 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08007d18                HardwareSerial::available()
+                0x08007d08       0x10 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08007d08                HardwareSerial::available()
  .text._ZN14HardwareSerial4peekEv
-                0x08007d28       0x1a .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08007d28                HardwareSerial::peek()
+                0x08007d18       0x1a .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08007d18                HardwareSerial::peek()
  .text._ZN14HardwareSerial17availableForWriteEv
-                0x08007d42       0x1c .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08007d42                HardwareSerial::availableForWrite()
+                0x08007d32       0x1c .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08007d32                HardwareSerial::availableForWrite()
  .text._ZN14HardwareSerial5writeEh
-                0x08007d5e       0x18 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08007d5e                HardwareSerial::write(unsigned char)
+                0x08007d4e       0x18 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08007d4e                HardwareSerial::write(unsigned char)
  .text._ZN14HardwareSerial16_rx_complete_irqEP8serial_s
-                0x08007d76       0x38 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08007d76                HardwareSerial::_rx_complete_irq(serial_s*)
- *fill*         0x08007dae        0x2 
+                0x08007d66       0x38 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08007d66                HardwareSerial::_rx_complete_irq(serial_s*)
+ *fill*         0x08007d9e        0x2 
  .text._ZN14HardwareSerial16_tx_complete_irqEP8serial_s
-                0x08007db0       0x64 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08007db0                HardwareSerial::_tx_complete_irq(serial_s*)
+                0x08007da0       0x64 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08007da0                HardwareSerial::_tx_complete_irq(serial_s*)
  .text._ZN14HardwareSerial5writeEPKhj
-                0x08007e14       0xe4 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08007e14                HardwareSerial::write(unsigned char const*, unsigned int)
+                0x08007e04       0xe4 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08007e04                HardwareSerial::write(unsigned char const*, unsigned int)
  .text._ZN14HardwareSerial4initE7PinNameS0_S0_S0_
-                0x08007ef8       0x32 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08007ef8                HardwareSerial::init(PinName, PinName, PinName, PinName)
+                0x08007ee8       0x32 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08007ee8                HardwareSerial::init(PinName, PinName, PinName, PinName)
  .text._ZN14HardwareSerial5flushEm
-                0x08007f2a       0x36 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08007f2a                HardwareSerial::flush(unsigned long)
+                0x08007f1a       0x36 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08007f1a                HardwareSerial::flush(unsigned long)
  .text._ZN14HardwareSerial5flushEv
-                0x08007f60        0x6 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08007f60                HardwareSerial::flush()
- *fill*         0x08007f66        0x2 
+                0x08007f50        0x6 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08007f50                HardwareSerial::flush()
+ *fill*         0x08007f56        0x2 
  .text._ZN14HardwareSerial5setRxEm
-                0x08007f68       0x48 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08007f68                HardwareSerial::setRx(unsigned long)
+                0x08007f58       0x48 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08007f58                HardwareSerial::setRx(unsigned long)
  .text._ZN14HardwareSerial5setTxEm
-                0x08007fb0       0x48 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08007fb0                HardwareSerial::setTx(unsigned long)
+                0x08007fa0       0x48 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08007fa0                HardwareSerial::setTx(unsigned long)
  .text._ZN14HardwareSerialC2EPv16HalfDuplexMode_t
-                0x08007ff8       0x9c .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08007ff8                HardwareSerial::HardwareSerial(void*, HalfDuplexMode_t)
-                0x08007ff8                HardwareSerial::HardwareSerial(void*, HalfDuplexMode_t)
+                0x08007fe8       0x9c .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08007fe8                HardwareSerial::HardwareSerial(void*, HalfDuplexMode_t)
+                0x08007fe8                HardwareSerial::HardwareSerial(void*, HalfDuplexMode_t)
  .text._ZN14HardwareSerial18enableHalfDuplexRxEv
-                0x08008094       0x2c .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08008094                HardwareSerial::enableHalfDuplexRx()
+                0x08008084       0x2c .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08008084                HardwareSerial::enableHalfDuplexRx()
  .text._ZN14HardwareSerial5beginEmh
-                0x080080c0       0x94 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x080080c0                HardwareSerial::begin(unsigned long, unsigned char)
+                0x080080b0       0x94 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x080080b0                HardwareSerial::begin(unsigned long, unsigned char)
  .text._ZN14HardwareSerial4readEv
-                0x08008154       0x2e .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08008154                HardwareSerial::read()
- *fill*         0x08008182        0x2 
+                0x08008144       0x2e .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08008144                HardwareSerial::read()
+ *fill*         0x08008172        0x2 
  .text.startup._GLOBAL__sub_I_Serial1
-                0x08008184       0x2c .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08008174       0x2c .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
  .text._ZN5Print5writeEPKc
-                0x080081b0       0x20 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
-                0x080081b0                Print::write(char const*)
+                0x080081a0       0x20 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
+                0x080081a0                Print::write(char const*)
  .text._ZN5Print5printERK6String
-                0x080081d0        0xa .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
-                0x080081d0                Print::print(String const&)
+                0x080081c0        0xa .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
+                0x080081c0                Print::print(String const&)
  .text._ZN5Print5printEPKc
-                0x080081da        0x8 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
-                0x080081da                Print::print(char const*)
+                0x080081ca        0x8 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
+                0x080081ca                Print::print(char const*)
  .text._ZN5Print5printEc
-                0x080081e2        0x6 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
-                0x080081e2                Print::print(char)
+                0x080081d2        0x6 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
+                0x080081d2                Print::print(char)
  .text._ZN5Print7printlnEv
-                0x080081e8       0x10 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
-                0x080081e8                Print::println()
+                0x080081d8       0x10 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
+                0x080081d8                Print::println()
  .text._ZN5Print7printlnEPK19__FlashStringHelper
-                0x080081f8       0x14 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
-                0x080081f8                Print::println(__FlashStringHelper const*)
+                0x080081e8       0x14 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
+                0x080081e8                Print::println(__FlashStringHelper const*)
  .text._ZN5Print7printlnEPKc
-                0x0800820c        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
-                0x0800820c                Print::println(char const*)
+                0x080081fc        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
+                0x080081fc                Print::println(char const*)
  .text._ZN5Print11printNumberEmh
-                0x08008210       0x3c .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
-                0x08008210                Print::printNumber(unsigned long, unsigned char)
+                0x08008200       0x3c .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
+                0x08008200                Print::printNumber(unsigned long, unsigned char)
  .text._ZN5Print5printEli
-                0x0800824c       0x44 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
-                0x0800824c                Print::print(long, int)
+                0x0800823c       0x44 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
+                0x0800823c                Print::print(long, int)
  .text._ZN5Print7printlnEii
-                0x08008290       0x14 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
-                0x08008290                Print::println(int, int)
+                0x08008280       0x14 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
+                0x08008280                Print::println(int, int)
  .text._ZN6Stream9timedReadEv
-                0x080082a4       0x2a .pio/build/nucleo_f303re/libFrameworkArduino.a(Stream.cpp.o)
-                0x080082a4                Stream::timedRead()
+                0x08008294       0x2a .pio/build/nucleo_f303re/libFrameworkArduino.a(Stream.cpp.o)
+                0x08008294                Stream::timedRead()
  .text._ZN6Stream9readBytesEPcj
-                0x080082ce       0x22 .pio/build/nucleo_f303re/libFrameworkArduino.a(Stream.cpp.o)
-                0x080082ce                Stream::readBytes(char*, unsigned int)
+                0x080082be       0x22 .pio/build/nucleo_f303re/libFrameworkArduino.a(Stream.cpp.o)
+                0x080082be                Stream::readBytes(char*, unsigned int)
  .text._ZN6Stream14readBytesUntilEcPcj
-                0x080082f0       0x30 .pio/build/nucleo_f303re/libFrameworkArduino.a(Stream.cpp.o)
-                0x080082f0                Stream::readBytesUntil(char, char*, unsigned int)
+                0x080082e0       0x30 .pio/build/nucleo_f303re/libFrameworkArduino.a(Stream.cpp.o)
+                0x080082e0                Stream::readBytesUntil(char, char*, unsigned int)
  .text._Z15attachInterruptmSt8functionIFvvEEm
-                0x08008320       0x80 .pio/build/nucleo_f303re/libFrameworkArduino.a(WInterrupts.cpp.o)
-                0x08008320                attachInterrupt(unsigned long, std::function<void ()>, unsigned long)
+                0x08008310       0x80 .pio/build/nucleo_f303re/libFrameworkArduino.a(WInterrupts.cpp.o)
+                0x08008310                attachInterrupt(unsigned long, std::function<void ()>, unsigned long)
  .text._ZN6StringD2Ev
-                0x080083a0        0xe .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
-                0x080083a0                String::~String()
-                0x080083a0                String::~String()
+                0x08008390        0xe .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
+                0x08008390                String::~String()
+                0x08008390                String::~String()
  .text._ZN6String10invalidateEv
-                0x080083ae       0x16 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
-                0x080083ae                String::invalidate()
+                0x0800839e       0x16 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
+                0x0800839e                String::invalidate()
  .text._ZN6String12changeBufferEj
-                0x080083c4       0x18 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
-                0x080083c4                String::changeBuffer(unsigned int)
+                0x080083b4       0x18 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
+                0x080083b4                String::changeBuffer(unsigned int)
  .text._ZN6String7reserveEj
-                0x080083dc       0x22 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
-                0x080083dc                String::reserve(unsigned int)
+                0x080083cc       0x22 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
+                0x080083cc                String::reserve(unsigned int)
  .text._ZN6String4copyEPKcj
-                0x080083fe       0x26 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
-                0x080083fe                String::copy(char const*, unsigned int)
+                0x080083ee       0x26 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
+                0x080083ee                String::copy(char const*, unsigned int)
  .text._ZN6StringC2EPKc
-                0x08008424       0x24 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
-                0x08008424                String::String(char const*)
-                0x08008424                String::String(char const*)
+                0x08008414       0x24 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
+                0x08008414                String::String(char const*)
+                0x08008414                String::String(char const*)
  .text._ZN6StringaSERKS_
-                0x08008448       0x1e .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
-                0x08008448                String::operator=(String const&)
+                0x08008438       0x1e .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
+                0x08008438                String::operator=(String const&)
  .text._ZN6StringC2ERKS_
-                0x08008466       0x14 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
-                0x08008466                String::String(String const&)
-                0x08008466                String::String(String const&)
+                0x08008456       0x14 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
+                0x08008456                String::String(String const&)
+                0x08008456                String::String(String const&)
  .text._ZN6StringaSEPKc
-                0x0800847a       0x22 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
-                0x0800847a                String::operator=(char const*)
+                0x0800846a       0x22 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
+                0x0800846a                String::operator=(char const*)
  .text._ZN6StringC2Efh
-                0x0800849c       0x38 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
-                0x0800849c                String::String(float, unsigned char)
-                0x0800849c                String::String(float, unsigned char)
+                0x0800848c       0x38 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
+                0x0800848c                String::String(float, unsigned char)
+                0x0800848c                String::String(float, unsigned char)
  .text._ZNK6String9substringEjj
-                0x080084d4       0x50 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
-                0x080084d4                String::substring(unsigned int, unsigned int) const
- .text.dtostrf  0x08008524      0x164 .pio/build/nucleo_f303re/libFrameworkArduino.a(dtostrf.c.o)
-                0x08008524                dtostrf
+                0x080084c4       0x50 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
+                0x080084c4                String::substring(unsigned int, unsigned int) const
+ .text.dtostrf  0x08008514      0x164 .pio/build/nucleo_f303re/libFrameworkArduino.a(dtostrf.c.o)
+                0x08008514                dtostrf
  .text.startup._Z7premainv
-                0x08008688       0x10 .pio/build/nucleo_f303re/libFrameworkArduino.a(main.cpp.o)
-                0x08008688                premain()
+                0x08008678       0x10 .pio/build/nucleo_f303re/libFrameworkArduino.a(main.cpp.o)
+                0x08008678                premain()
  .text.startup.main
-                0x08008698       0x14 .pio/build/nucleo_f303re/libFrameworkArduino.a(main.cpp.o)
-                0x08008698                main
+                0x08008688       0x14 .pio/build/nucleo_f303re/libFrameworkArduino.a(main.cpp.o)
+                0x08008688                main
  .text.pinNametoDigitalPin
-                0x080086ac       0x30 .pio/build/nucleo_f303re/libFrameworkArduino.a(pins_arduino.c.o)
-                0x080086ac                pinNametoDigitalPin
+                0x0800869c       0x30 .pio/build/nucleo_f303re/libFrameworkArduino.a(pins_arduino.c.o)
+                0x0800869c                pinNametoDigitalPin
  .text.Reset_Handler
-                0x080086dc       0x50 .pio/build/nucleo_f303re/libFrameworkArduino.a(startup_stm32yyxx.S.o)
-                0x080086dc                Reset_Handler
+                0x080086cc       0x50 .pio/build/nucleo_f303re/libFrameworkArduino.a(startup_stm32yyxx.S.o)
+                0x080086cc                Reset_Handler
  .text.Default_Handler
-                0x0800872c        0x2 .pio/build/nucleo_f303re/libFrameworkArduino.a(startup_stm32yyxx.S.o)
-                0x0800872c                RTC_Alarm_IRQHandler
-                0x0800872c                TIM8_TRG_COM_IRQHandler
-                0x0800872c                DebugMon_Handler
-                0x0800872c                SPI4_IRQHandler
-                0x0800872c                TIM1_CC_IRQHandler
-                0x0800872c                HardFault_Handler
-                0x0800872c                USB_HP_IRQHandler
-                0x0800872c                PVD_IRQHandler
-                0x0800872c                TAMP_STAMP_IRQHandler
-                0x0800872c                PendSV_Handler
-                0x0800872c                NMI_Handler
-                0x0800872c                USB_HP_CAN_TX_IRQHandler
-                0x0800872c                FPU_IRQHandler
-                0x0800872c                UsageFault_Handler
-                0x0800872c                ADC1_2_IRQHandler
-                0x0800872c                SPI1_IRQHandler
-                0x0800872c                CAN_SCE_IRQHandler
-                0x0800872c                DMA2_Channel2_IRQHandler
-                0x0800872c                DMA1_Channel4_IRQHandler
-                0x0800872c                TIM20_TRG_COM_IRQHandler
-                0x0800872c                DMA1_Channel7_IRQHandler
-                0x0800872c                ADC3_IRQHandler
-                0x0800872c                CAN_RX1_IRQHandler
-                0x0800872c                DMA2_Channel1_IRQHandler
-                0x0800872c                DMA1_Channel6_IRQHandler
-                0x0800872c                DMA2_Channel4_IRQHandler
-                0x0800872c                RCC_IRQHandler
-                0x0800872c                DMA1_Channel1_IRQHandler
-                0x0800872c                Default_Handler
-                0x0800872c                USBWakeUp_RMP_IRQHandler
-                0x0800872c                RTC_WKUP_IRQHandler
-                0x0800872c                SPI2_IRQHandler
-                0x0800872c                USB_LP_CAN_RX0_IRQHandler
-                0x0800872c                MemManage_Handler
-                0x0800872c                SVC_Handler
-                0x0800872c                DMA2_Channel5_IRQHandler
-                0x0800872c                DMA1_Channel5_IRQHandler
-                0x0800872c                USB_LP_IRQHandler
-                0x0800872c                DMA1_Channel3_IRQHandler
-                0x0800872c                ADC4_IRQHandler
-                0x0800872c                WWDG_IRQHandler
-                0x0800872c                COMP7_IRQHandler
-                0x0800872c                COMP1_2_3_IRQHandler
-                0x0800872c                COMP4_5_6_IRQHandler
-                0x0800872c                TIM20_BRK_IRQHandler
-                0x0800872c                DMA1_Channel2_IRQHandler
-                0x0800872c                TIM8_BRK_IRQHandler
-                0x0800872c                FLASH_IRQHandler
-                0x0800872c                BusFault_Handler
-                0x0800872c                SPI3_IRQHandler
-                0x0800872c                FMC_IRQHandler
-                0x0800872c                USBWakeUp_IRQHandler
-                0x0800872c                DMA2_Channel3_IRQHandler
-                0x0800872c                EXTI2_TSC_IRQHandler
+                0x0800871c        0x2 .pio/build/nucleo_f303re/libFrameworkArduino.a(startup_stm32yyxx.S.o)
+                0x0800871c                RTC_Alarm_IRQHandler
+                0x0800871c                TIM8_TRG_COM_IRQHandler
+                0x0800871c                DebugMon_Handler
+                0x0800871c                SPI4_IRQHandler
+                0x0800871c                TIM1_CC_IRQHandler
+                0x0800871c                HardFault_Handler
+                0x0800871c                USB_HP_IRQHandler
+                0x0800871c                PVD_IRQHandler
+                0x0800871c                TAMP_STAMP_IRQHandler
+                0x0800871c                PendSV_Handler
+                0x0800871c                NMI_Handler
+                0x0800871c                USB_HP_CAN_TX_IRQHandler
+                0x0800871c                FPU_IRQHandler
+                0x0800871c                UsageFault_Handler
+                0x0800871c                ADC1_2_IRQHandler
+                0x0800871c                SPI1_IRQHandler
+                0x0800871c                CAN_SCE_IRQHandler
+                0x0800871c                DMA2_Channel2_IRQHandler
+                0x0800871c                DMA1_Channel4_IRQHandler
+                0x0800871c                TIM20_TRG_COM_IRQHandler
+                0x0800871c                DMA1_Channel7_IRQHandler
+                0x0800871c                ADC3_IRQHandler
+                0x0800871c                CAN_RX1_IRQHandler
+                0x0800871c                DMA2_Channel1_IRQHandler
+                0x0800871c                DMA1_Channel6_IRQHandler
+                0x0800871c                DMA2_Channel4_IRQHandler
+                0x0800871c                RCC_IRQHandler
+                0x0800871c                DMA1_Channel1_IRQHandler
+                0x0800871c                Default_Handler
+                0x0800871c                USBWakeUp_RMP_IRQHandler
+                0x0800871c                RTC_WKUP_IRQHandler
+                0x0800871c                SPI2_IRQHandler
+                0x0800871c                USB_LP_CAN_RX0_IRQHandler
+                0x0800871c                MemManage_Handler
+                0x0800871c                SVC_Handler
+                0x0800871c                DMA2_Channel5_IRQHandler
+                0x0800871c                DMA1_Channel5_IRQHandler
+                0x0800871c                USB_LP_IRQHandler
+                0x0800871c                DMA1_Channel3_IRQHandler
+                0x0800871c                ADC4_IRQHandler
+                0x0800871c                WWDG_IRQHandler
+                0x0800871c                COMP7_IRQHandler
+                0x0800871c                COMP1_2_3_IRQHandler
+                0x0800871c                COMP4_5_6_IRQHandler
+                0x0800871c                TIM20_BRK_IRQHandler
+                0x0800871c                DMA1_Channel2_IRQHandler
+                0x0800871c                TIM8_BRK_IRQHandler
+                0x0800871c                FLASH_IRQHandler
+                0x0800871c                BusFault_Handler
+                0x0800871c                SPI3_IRQHandler
+                0x0800871c                FMC_IRQHandler
+                0x0800871c                USBWakeUp_IRQHandler
+                0x0800871c                DMA2_Channel3_IRQHandler
+                0x0800871c                EXTI2_TSC_IRQHandler
  .text.mapResolution
-                0x0800872e       0x26 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
+                0x0800871e       0x26 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
  .text.analogWriteResolution
-                0x08008754       0x20 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
-                0x08008754                analogWriteResolution
+                0x08008744       0x20 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
+                0x08008744                analogWriteResolution
  .text.analogWriteFrequency
-                0x08008774        0xc .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
-                0x08008774                analogWriteFrequency
+                0x08008764        0xc .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
+                0x08008764                analogWriteFrequency
  .text.analogWrite
-                0x08008780      0x124 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
-                0x08008780                analogWrite
- .text.pinMode  0x080088a4       0xd4 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_digital.c.o)
-                0x080088a4                pinMode
+                0x08008770      0x124 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
+                0x08008770                analogWrite
+ .text.pinMode  0x08008894       0xd4 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_digital.c.o)
+                0x08008894                pinMode
  .text.digitalWrite
-                0x08008978       0x70 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_digital.c.o)
-                0x08008978                digitalWrite
+                0x08008968       0x70 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_digital.c.o)
+                0x08008968                digitalWrite
  .text.digitalRead
-                0x080089e8       0x78 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_digital.c.o)
-                0x080089e8                digitalRead
- .text.millis   0x08008a60        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_time.c.o)
-                0x08008a60                millis
- .text.delay    0x08008a64       0x1c .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_time.c.o)
-                0x08008a64                delay
+                0x080089d8       0x78 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_digital.c.o)
+                0x080089d8                digitalRead
+ .text.millis   0x08008a50        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_time.c.o)
+                0x08008a50                millis
+ .text.delay    0x08008a54       0x1c .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_time.c.o)
+                0x08008a54                delay
  .text._Z14serialEventRunv
-                0x08008a80       0x34 .pio/build/nucleo_f303re/libFrameworkArduino.a(WSerial.cpp.o)
-                0x08008a80                serialEventRun()
- .text.init     0x08008ab4        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(board.c.o)
-                0x08008ab4                init
- .text.__empty  0x08008ab8        0x2 .pio/build/nucleo_f303re/libFrameworkArduino.a(hooks.c.o)
-                0x08008ab8                yield
+                0x08008a70       0x34 .pio/build/nucleo_f303re/libFrameworkArduino.a(WSerial.cpp.o)
+                0x08008a70                serialEventRun()
+ .text.init     0x08008aa4        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(board.c.o)
+                0x08008aa4                init
+ .text.__empty  0x08008aa8        0x2 .pio/build/nucleo_f303re/libFrameworkArduino.a(hooks.c.o)
+                0x08008aa8                yield
  .text.unlikely._ZSt25__throw_bad_function_callv
-                0x08008aba        0x6 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libstdc++_nano.a(functional.o)
-                0x08008aba                std::__throw_bad_function_call()
- .text.sinf     0x08008ac0       0x74 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_sin.o)
-                0x08008ac0                sinf
+                0x08008aaa        0x6 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libstdc++_nano.a(functional.o)
+                0x08008aaa                std::__throw_bad_function_call()
+ .text.sinf     0x08008ab0       0x74 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_sin.o)
+                0x08008ab0                sinf
  .text.__kernel_cosf
-                0x08008b34      0x104 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_cos.o)
-                0x08008b34                __kernel_cosf
+                0x08008b24      0x104 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_cos.o)
+                0x08008b24                __kernel_cosf
  .text.__kernel_sinf
-                0x08008c38       0x90 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_sin.o)
-                0x08008c38                __kernel_sinf
+                0x08008c28       0x90 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_sin.o)
+                0x08008c28                __kernel_sinf
  .text.__ieee754_rem_pio2f
-                0x08008cc8      0x260 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_rem_pio2.o)
-                0x08008cc8                __ieee754_rem_pio2f
- .text.fabsf    0x08008f28       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_fabs.o)
-                0x08008f28                fabsf
+                0x08008cb8      0x260 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_rem_pio2.o)
+                0x08008cb8                __ieee754_rem_pio2f
+ .text.fabsf    0x08008f18       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_fabs.o)
+                0x08008f18                fabsf
  .text.__kernel_rem_pio2f
-                0x08008f38      0x66c /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_rem_pio2.o)
-                0x08008f38                __kernel_rem_pio2f
- .text.scalbnf  0x080095a4       0xe4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_scalbn.o)
-                0x080095a4                scalbnf
- .text.floorf   0x08009688       0x94 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_floor.o)
-                0x08009688                floorf
- .text.abort    0x0800971c        0xe /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-abort.o)
-                0x0800971c                abort
- *fill*         0x0800972a        0x2 
- .text.malloc   0x0800972c       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-malloc.o)
-                0x0800972c                malloc
- .text.free     0x0800973c       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-malloc.o)
-                0x0800973c                free
+                0x08008f28      0x66c /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_rem_pio2.o)
+                0x08008f28                __kernel_rem_pio2f
+ .text.scalbnf  0x08009594       0xe4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_scalbn.o)
+                0x08009594                scalbnf
+ .text.floorf   0x08009678       0x94 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_floor.o)
+                0x08009678                floorf
+ .text.abort    0x0800970c        0xe /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-abort.o)
+                0x0800970c                abort
+ *fill*         0x0800971a        0x2 
+ .text.malloc   0x0800971c       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-malloc.o)
+                0x0800971c                malloc
+ .text.free     0x0800972c       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-malloc.o)
+                0x0800972c                free
  .text.sbrk_aligned
-                0x0800974c       0x44 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
+                0x0800973c       0x44 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
  .text._malloc_r
-                0x08009790      0x100 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
-                0x08009790                _malloc_r
+                0x08009780      0x100 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
+                0x08009780                _malloc_r
  .text.__malloc_lock
-                0x08009890        0xc /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
-                0x08009890                __malloc_lock
+                0x08009880        0xc /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
+                0x08009880                __malloc_lock
  .text.__malloc_unlock
-                0x0800989c        0xc /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
-                0x0800989c                __malloc_unlock
- .text.realloc  0x080098a8       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-realloc.o)
-                0x080098a8                realloc
+                0x0800988c        0xc /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
+                0x0800988c                __malloc_unlock
+ .text.realloc  0x08009898       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-realloc.o)
+                0x08009898                realloc
  .text._realloc_r
-                0x080098b8       0x5c /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reallocr.o)
-                0x080098b8                _realloc_r
- .text.sprintf  0x08009914       0x40 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sprintf.o)
-                0x08009914                sprintf
-                0x08009914                siprintf
- .text.memmove  0x08009954       0x34 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memmove.o)
-                0x08009954                memmove
- .text.memset   0x08009988       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memset.o)
-                0x08009988                memset
- .text.strcat   0x08009998       0x1e /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strcat.o)
-                0x08009998                strcat
+                0x080098a8       0x5c /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reallocr.o)
+                0x080098a8                _realloc_r
+ .text.sprintf  0x08009904       0x40 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sprintf.o)
+                0x08009904                sprintf
+                0x08009904                siprintf
+ .text.memmove  0x08009944       0x34 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memmove.o)
+                0x08009944                memmove
+ .text.memset   0x08009978       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memset.o)
+                0x08009978                memset
+ .text.strcat   0x08009988       0x1e /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strcat.o)
+                0x08009988                strcat
  .text._raise_r
-                0x080099b6       0x50 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signal.o)
-                0x080099b6                _raise_r
- *fill*         0x08009a06        0x2 
- .text.raise    0x08009a08       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signal.o)
-                0x08009a08                raise
- .text._kill_r  0x08009a18       0x24 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signalr.o)
-                0x08009a18                _kill_r
+                0x080099a6       0x50 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signal.o)
+                0x080099a6                _raise_r
+ *fill*         0x080099f6        0x2 
+ .text.raise    0x080099f8       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signal.o)
+                0x080099f8                raise
+ .text._kill_r  0x08009a08       0x24 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signalr.o)
+                0x08009a08                _kill_r
  .text._getpid_r
-                0x08009a3c        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signalr.o)
-                0x08009a3c                _getpid_r
- .text._sbrk_r  0x08009a40       0x20 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
-                0x08009a40                _sbrk_r
+                0x08009a2c        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signalr.o)
+                0x08009a2c                _getpid_r
+ .text._sbrk_r  0x08009a30       0x20 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
+                0x08009a30                _sbrk_r
  .text.__libc_init_array
-                0x08009a60       0x48 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
-                0x08009a60                __libc_init_array
+                0x08009a50       0x48 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
+                0x08009a50                __libc_init_array
  .text.__retarget_lock_acquire_recursive
-                0x08009aa8        0x2 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
-                0x08009aa8                __retarget_lock_acquire_recursive
+                0x08009a98        0x2 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
+                0x08009a98                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x08009aaa        0x2 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
-                0x08009aaa                __retarget_lock_release_recursive
- .text.strcpy   0x08009aac       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strcpy.o)
-                0x08009aac                strcpy
- .text.memcpy   0x08009abc       0x1c /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memcpy-stub.o)
-                0x08009abc                memcpy
- .text._free_r  0x08009ad8       0x94 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-freer.o)
-                0x08009ad8                _free_r
+                0x08009a9a        0x2 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
+                0x08009a9a                __retarget_lock_release_recursive
+ .text.strcpy   0x08009a9c       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strcpy.o)
+                0x08009a9c                strcpy
+ .text.memcpy   0x08009aac       0x1c /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memcpy-stub.o)
+                0x08009aac                memcpy
+ .text._free_r  0x08009ac8       0x94 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-freer.o)
+                0x08009ac8                _free_r
  .text._malloc_usable_size_r
-                0x08009b6c       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-msizer.o)
-                0x08009b6c                _malloc_usable_size_r
+                0x08009b5c       0x10 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-msizer.o)
+                0x08009b5c                _malloc_usable_size_r
  .text.__ssputs_r
-                0x08009b7c       0xb6 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
-                0x08009b7c                __ssputs_r
- *fill*         0x08009c32        0x2 
+                0x08009b6c       0xb6 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
+                0x08009b6c                __ssputs_r
+ *fill*         0x08009c22        0x2 
  .text._svfprintf_r
-                0x08009c34      0x1f8 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
-                0x08009c34                _svfprintf_r
-                0x08009c34                _svfiprintf_r
+                0x08009c24      0x1f8 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
+                0x08009c24                _svfprintf_r
+                0x08009c24                _svfiprintf_r
  .text._printf_common
-                0x08009e2c       0xda /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
-                0x08009e2c                _printf_common
- *fill*         0x08009f06        0x2 
+                0x08009e1c       0xda /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
+                0x08009e1c                _printf_common
+ *fill*         0x08009ef6        0x2 
  .text._printf_i
-                0x08009f08      0x258 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
-                0x08009f08                _printf_i
+                0x08009ef8      0x258 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
+                0x08009ef8                _printf_i
  *(.glue_7)
- .glue_7        0x0800a160        0x0 linker stubs
+ .glue_7        0x0800a150        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0800a160        0x0 linker stubs
+ .glue_7t       0x0800a150        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0800a160        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x0800a150        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x0800a160        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x0800a160                _init
- .init          0x0800a164        0x8 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x0800a150        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x0800a150                _init
+ .init          0x0800a154        0x8 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x0800a16c        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x0800a16c                _fini
- .fini          0x0800a170        0x8 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtn.o
-                0x0800a178                        . = ALIGN (0x4)
-                0x0800a178                        _etext = .
+ .fini          0x0800a15c        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x0800a15c                _fini
+ .fini          0x0800a160        0x8 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x0800a168                        . = ALIGN (0x4)
+                0x0800a168                        _etext = .
 
-.vfp11_veneer   0x0800a178        0x0
- .vfp11_veneer  0x0800a178        0x0 linker stubs
+.vfp11_veneer   0x0800a168        0x0
+ .vfp11_veneer  0x0800a168        0x0 linker stubs
 
-.v4_bx          0x0800a178        0x0
- .v4_bx         0x0800a178        0x0 linker stubs
+.v4_bx          0x0800a168        0x0
+ .v4_bx         0x0800a168        0x0 linker stubs
 
-.iplt           0x0800a178        0x0
- .iplt          0x0800a178        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x0800a168        0x0
+ .iplt          0x0800a168        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x0800a178    0x4f1a0
-                0x0800a178                        . = ALIGN (0x4)
+.rodata         0x0800a168    0x4f1a0
+                0x0800a168                        . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x0800a178       0x10 .pio/build/nucleo_f303re/src/lcd.cpp.o
+ .rodata        0x0800a168       0x10 .pio/build/nucleo_f303re/src/lcd.cpp.o
  *(.rodata*)
  .rodata.PinMap_UART_CTS
-                0x0800a188       0x3c .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
-                0x0800a188                PinMap_UART_CTS
+                0x0800a178       0x3c .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
+                0x0800a178                PinMap_UART_CTS
  .rodata.PinMap_UART_RTS
-                0x0800a1c4       0x30 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
-                0x0800a1c4                PinMap_UART_RTS
+                0x0800a1b4       0x30 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
+                0x0800a1b4                PinMap_UART_RTS
  .rodata.PinMap_UART_RX
-                0x0800a1f4       0x90 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
-                0x0800a1f4                PinMap_UART_RX
+                0x0800a1e4       0x90 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
+                0x0800a1e4                PinMap_UART_RX
  .rodata.PinMap_UART_TX
-                0x0800a284       0x90 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
-                0x0800a284                PinMap_UART_TX
+                0x0800a274       0x90 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
+                0x0800a274                PinMap_UART_TX
  .rodata.PinMap_TIM
-                0x0800a314      0x3e4 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
-                0x0800a314                PinMap_TIM
+                0x0800a304      0x3e4 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
+                0x0800a304                PinMap_TIM
  .rodata.PinMap_I2C_SCL
-                0x0800a6f8       0x54 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
-                0x0800a6f8                PinMap_I2C_SCL
+                0x0800a6e8       0x54 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
+                0x0800a6e8                PinMap_I2C_SCL
  .rodata.PinMap_I2C_SDA
-                0x0800a74c       0x60 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
-                0x0800a74c                PinMap_I2C_SDA
+                0x0800a73c       0x60 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
+                0x0800a73c                PinMap_I2C_SDA
  .rodata.PinMap_DAC
-                0x0800a7ac       0x24 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
-                0x0800a7ac                PinMap_DAC
+                0x0800a79c       0x24 .pio/build/nucleo_f303re/FrameworkArduinoVariant/PeripheralPins.c.o
+                0x0800a79c                PinMap_DAC
  .rodata.analogInputPin
-                0x0800a7d0       0x58 .pio/build/nucleo_f303re/FrameworkArduinoVariant/variant_NUCLEO_F303RE.cpp.o
-                0x0800a7d0                analogInputPin
+                0x0800a7c0       0x58 .pio/build/nucleo_f303re/FrameworkArduinoVariant/variant_NUCLEO_F303RE.cpp.o
+                0x0800a7c0                analogInputPin
  .rodata.digitalPin
-                0x0800a828       0xd0 .pio/build/nucleo_f303re/FrameworkArduinoVariant/variant_NUCLEO_F303RE.cpp.o
-                0x0800a828                digitalPin
+                0x0800a818       0xd0 .pio/build/nucleo_f303re/FrameworkArduinoVariant/variant_NUCLEO_F303RE.cpp.o
+                0x0800a818                digitalPin
  .rodata.aPredivFactorTable
-                0x0800a8f8       0x10 .pio/build/nucleo_f303re/SrcWrapper/src/HAL/stm32yyxx_hal_rcc.c.o
+                0x0800a8e8       0x10 .pio/build/nucleo_f303re/SrcWrapper/src/HAL/stm32yyxx_hal_rcc.c.o
  .rodata.aPLLMULFactorTable
-                0x0800a908       0x10 .pio/build/nucleo_f303re/SrcWrapper/src/HAL/stm32yyxx_hal_rcc.c.o
+                0x0800a8f8       0x10 .pio/build/nucleo_f303re/SrcWrapper/src/HAL/stm32yyxx_hal_rcc.c.o
  .rodata.adc_pll_prediv_table.0
-                0x0800a918       0x20 .pio/build/nucleo_f303re/SrcWrapper/src/HAL/stm32yyxx_hal_rcc_ex.c.o
+                0x0800a908       0x20 .pio/build/nucleo_f303re/SrcWrapper/src/HAL/stm32yyxx_hal_rcc_ex.c.o
  .rodata.CSWTCH.79
-                0x0800a938        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/HardwareTimer.cpp.o
+                0x0800a928        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/HardwareTimer.cpp.o
  .rodata.CSWTCH.77
-                0x0800a93c        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/HardwareTimer.cpp.o
+                0x0800a92c        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/HardwareTimer.cpp.o
  .rodata.CSWTCH.75
-                0x0800a940        0x6 .pio/build/nucleo_f303re/SrcWrapper/src/HardwareTimer.cpp.o
- *fill*         0x0800a946        0x2 
+                0x0800a930        0x6 .pio/build/nucleo_f303re/SrcWrapper/src/HardwareTimer.cpp.o
+ *fill*         0x0800a936        0x2 
  .rodata.pin_map_ll
-                0x0800a948       0x40 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/pinmap.c.o
-                0x0800a948                pin_map_ll
+                0x0800a938       0x40 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/pinmap.c.o
+                0x0800a938                pin_map_ll
  .rodata.APBPrescTable
-                0x0800a988        0x8 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/system_stm32yyxx.c.o
-                0x0800a988                APBPrescTable
+                0x0800a978        0x8 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/system_stm32yyxx.c.o
+                0x0800a978                APBPrescTable
  .rodata.AHBPrescTable
-                0x0800a990       0x10 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/system_stm32yyxx.c.o
-                0x0800a990                AHBPrescTable
+                0x0800a980       0x10 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/system_stm32yyxx.c.o
+                0x0800a980                AHBPrescTable
  .rodata._ZL12audioSamples
-                0x0800a9a0    0x4e3ae .pio/build/nucleo_f303re/src/audio.cpp.o
- *fill*         0x08058d4e        0x2 
+                0x0800a990    0x4e3ae .pio/build/nucleo_f303re/src/audio.cpp.o
+ *fill*         0x08058d3e        0x2 
  .rodata._ZL13sampleLengths
-                0x08058d50        0xc .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x08058d40        0xc .pio/build/nucleo_f303re/src/audio.cpp.o
  .rodata._Z9lcd_setupv.str1.1
-                0x08058d5c       0x14 .pio/build/nucleo_f303re/src/lcd.cpp.o
+                0x08058d4c       0x14 .pio/build/nucleo_f303re/src/lcd.cpp.o
  .rodata.pwm2value
-                0x08058d70       0x40 .pio/build/nucleo_f303re/src/lpf.cpp.o
-                0x08058d70                pwm2value
+                0x08058d60       0x40 .pio/build/nucleo_f303re/src/lpf.cpp.o
+                0x08058d60                pwm2value
  .rodata.pwm1value
-                0x08058db0       0x40 .pio/build/nucleo_f303re/src/lpf.cpp.o
-                0x08058db0                pwm1value
+                0x08058da0       0x40 .pio/build/nucleo_f303re/src/lpf.cpp.o
+                0x08058da0                pwm1value
  .rodata.cutoffFreq
-                0x08058df0       0x40 .pio/build/nucleo_f303re/src/lpf.cpp.o
-                0x08058df0                cutoffFreq
+                0x08058de0       0x40 .pio/build/nucleo_f303re/src/lpf.cpp.o
+                0x08058de0                cutoffFreq
  .rodata.setup.str1.1
-                0x08058e30        0x6 .pio/build/nucleo_f303re/src/main.cpp.o
+                0x08058e20        0x6 .pio/build/nucleo_f303re/src/main.cpp.o
  .rodata.loop.str1.1
-                0x08058e36        0x9 .pio/build/nucleo_f303re/src/main.cpp.o
- *fill*         0x08058e3f        0x1 
+                0x08058e26        0x9 .pio/build/nucleo_f303re/src/main.cpp.o
+ *fill*         0x08058e2f        0x1 
  .rodata._ZTV7TwoWire
-                0x08058e40       0x2c .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08058e40                vtable for TwoWire
+                0x08058e30       0x2c .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08058e30                vtable for TwoWire
  .rodata.I2C_Charac
-                0x08058e6c       0x54 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08058e5c       0x54 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
  .rodata.CSWTCH.73
-                0x08058ec0        0xc .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08058eb0        0xc .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
  .rodata.CSWTCH.72
-                0x08058ecc        0x5 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
- *fill*         0x08058ed1        0x3 
+                0x08058ebc        0x5 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+ *fill*         0x08058ec1        0x3 
  .rodata._ZTV14HardwareSerial
-                0x08058ed4       0x2c .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08058ed4                vtable for HardwareSerial
+                0x08058ec4       0x2c .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08058ec4                vtable for HardwareSerial
  .rodata._ZN5Print7printlnEv.str1.1
-                0x08058f00        0x3 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
+                0x08058ef0        0x3 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
  .rodata._ZNK6String9substringEjj.str1.1
-                0x08058f03        0x3 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
+                0x08058ef3        0x3 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
                                   0x1 (size before relaxing)
  .rodata.dtostrf.str1.1
-                0x08058f03       0x10 .pio/build/nucleo_f303re/libFrameworkArduino.a(dtostrf.c.o)
+                0x08058ef3       0x10 .pio/build/nucleo_f303re/libFrameworkArduino.a(dtostrf.c.o)
                                  0x1e (size before relaxing)
- *fill*         0x08058f13        0x1 
+ *fill*         0x08058f03        0x1 
  .rodata.npio2_hw
-                0x08058f14       0x80 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_rem_pio2.o)
+                0x08058f04       0x80 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_rem_pio2.o)
  .rodata.two_over_pi
-                0x08058f94      0x318 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_rem_pio2.o)
- .rodata.PIo2   0x080592ac       0x2c /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_rem_pio2.o)
+                0x08058f84      0x318 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_rem_pio2.o)
+ .rodata.PIo2   0x0805929c       0x2c /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_rem_pio2.o)
  .rodata.init_jk
-                0x080592d8        0xc /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_rem_pio2.o)
+                0x080592c8        0xc /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_rem_pio2.o)
  .rodata._svfprintf_r.str1.1
-                0x080592e4       0x11 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
+                0x080592d4       0x11 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
  .rodata._printf_i.str1.1
-                0x080592f5       0x22 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
-                0x08059318                        . = ALIGN (0x4)
- *fill*         0x08059317        0x1 
+                0x080592e5       0x22 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
+                0x08059308                        . = ALIGN (0x4)
+ *fill*         0x08059307        0x1 
 
-.ARM.extab      0x08059318        0x0
-                0x08059318                        . = ALIGN (0x4)
+.ARM.extab      0x08059308        0x0
+                0x08059308                        . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08059318                        . = ALIGN (0x4)
+                0x08059308                        . = ALIGN (0x4)
 
-.ARM            0x08059318        0x8
-                0x08059318                        . = ALIGN (0x4)
-                0x08059318                        __exidx_start = .
+.ARM            0x08059308        0x8
+                0x08059308                        . = ALIGN (0x4)
+                0x08059308                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x08059318        0x8 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strlen.o)
- .ARM.exidx     0x08059320        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
+ .ARM.exidx     0x08059308        0x8 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strlen.o)
+ .ARM.exidx     0x08059310        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
                                   0x8 (size before relaxing)
-                0x08059320                        __exidx_end = .
-                0x08059320                        . = ALIGN (0x4)
+                0x08059310                        __exidx_end = .
+                0x08059310                        . = ALIGN (0x4)
 
-.preinit_array  0x08059320        0x0
-                0x08059320                        . = ALIGN (0x4)
-                0x08059320                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08059310        0x0
+                0x08059310                        . = ALIGN (0x4)
+                0x08059310                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08059320                        PROVIDE (__preinit_array_end = .)
-                0x08059320                        . = ALIGN (0x4)
+                0x08059310                        PROVIDE (__preinit_array_end = .)
+                0x08059310                        . = ALIGN (0x4)
 
-.init_array     0x08059320       0x14
-                0x08059320                        . = ALIGN (0x4)
-                0x08059320                        PROVIDE (__init_array_start = .)
+.init_array     0x08059310       0x14
+                0x08059310                        . = ALIGN (0x4)
+                0x08059310                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00101
-                0x08059320        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(main.cpp.o)
+                0x08059310        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(main.cpp.o)
  *(.init_array*)
- .init_array    0x08059324        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .init_array    0x08059328        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/interrupt.cpp.o
- .init_array    0x0805932c        0x4 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
- .init_array    0x08059330        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08059334                        PROVIDE (__init_array_end = .)
-                0x08059334                        . = ALIGN (0x4)
+ .init_array    0x08059314        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .init_array    0x08059318        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/interrupt.cpp.o
+ .init_array    0x0805931c        0x4 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+ .init_array    0x08059320        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08059324                        PROVIDE (__init_array_end = .)
+                0x08059324                        . = ALIGN (0x4)
 
-.fini_array     0x08059334        0xc
-                0x08059334                        . = ALIGN (0x4)
-                0x08059334                        PROVIDE (__fini_array_start = .)
+.fini_array     0x08059324        0xc
+                0x08059324                        . = ALIGN (0x4)
+                0x08059324                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08059334        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .fini_array    0x08059338        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/interrupt.cpp.o
- .fini_array    0x0805933c        0x4 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08059340                        PROVIDE (__fini_array_end = .)
-                0x08059340                        . = ALIGN (0x4)
-                0x08059340                        _sidata = LOADADDR (.data)
+ .fini_array    0x08059324        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x08059328        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/interrupt.cpp.o
+ .fini_array    0x0805932c        0x4 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08059330                        PROVIDE (__fini_array_end = .)
+                0x08059330                        . = ALIGN (0x4)
+                0x08059330                        _sidata = LOADADDR (.data)
 
-.rel.dyn        0x08059340        0x0
- .rel.iplt      0x08059340        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x08059330        0x0
+ .rel.iplt      0x08059330        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.data           0x20000000       0xc0 load address 0x08059340
+.data           0x20000000       0xc4 load address 0x08059330
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
@@ -5636,128 +5639,131 @@ Linker script and memory map
                 0x20000050                SystemCoreClock
  .data.heap_end.0
                 0x20000054        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/syscalls.c.o
- .data.pitchSpeed
+ .data.useAnalog
                 0x20000058        0x4 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x20000058                pitchSpeed
- .data.crushFactor
+                0x20000058                useAnalog
+ .data.pitchSpeed
                 0x2000005c        0x4 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x2000005c                crushFactor
+                0x2000005c                pitchSpeed
+ .data.crushFactor
+                0x20000060        0x4 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x20000060                crushFactor
  .data._ZL8encLastA
-                0x20000060        0x4 .pio/build/nucleo_f303re/src/encoder.cpp.o
+                0x20000064        0x4 .pio/build/nucleo_f303re/src/encoder.cpp.o
  .data._writeFreq
-                0x20000064        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
- .data._internalWriteResolution
                 0x20000068        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
- .data._writeResolution
+ .data._internalWriteResolution
                 0x2000006c        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
+ .data._writeResolution
+                0x20000070        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
  .data._impure_ptr
-                0x20000070        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-impure.o)
-                0x20000070                _impure_ptr
+                0x20000074        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-impure.o)
+                0x20000074                _impure_ptr
  .data._impure_data
-                0x20000074       0x4c /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-impure.o)
-                0x20000074                _impure_data
+                0x20000078       0x4c /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-impure.o)
+                0x20000078                _impure_data
  *(.RamFunc)
  *(.RamFunc*)
-                0x200000c0                        . = ALIGN (0x4)
-                0x200000c0                        _edata = .
+                0x200000c4                        . = ALIGN (0x4)
+                0x200000c4                        _edata = .
 
-.igot.plt       0x200000c0        0x0 load address 0x08059400
- .igot.plt      0x200000c0        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x200000c0                        . = ALIGN (0x4)
+.igot.plt       0x200000c4        0x0 load address 0x080593f4
+ .igot.plt      0x200000c4        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x200000c4                        . = ALIGN (0x4)
 
-.bss            0x200000c0      0xaf4 load address 0x08059400
-                0x200000c0                        _sbss = .
-                0x200000c0                        __bss_start__ = _sbss
+.bss            0x200000c4      0xaf4 load address 0x080593f4
+                0x200000c4                        _sbss = .
+                0x200000c4                        __bss_start__ = _sbss
  *(.bss)
  *(.bss*)
  .bss.completed.1
-                0x200000c0        0x1 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- *fill*         0x200000c1        0x3 
- .bss.object.0  0x200000c4       0x18 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .bss.uwTick    0x200000dc        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/HAL/stm32yyxx_hal.c.o
-                0x200000dc                uwTick
+                0x200000c4        0x1 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ *fill*         0x200000c5        0x3 
+ .bss.object.0  0x200000c8       0x18 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .bss.uwTick    0x200000e0        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/HAL/stm32yyxx_hal.c.o
+                0x200000e0                uwTick
  .bss.HardwareTimer_Handle
-                0x200000e0       0x2c .pio/build/nucleo_f303re/SrcWrapper/src/HardwareTimer.cpp.o
-                0x200000e0                HardwareTimer_Handle
+                0x200000e4       0x2c .pio/build/nucleo_f303re/SrcWrapper/src/HardwareTimer.cpp.o
+                0x200000e4                HardwareTimer_Handle
  .bss._ZL13gpio_irq_conf
-                0x2000010c      0x140 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/interrupt.cpp.o
+                0x20000110      0x140 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/interrupt.cpp.o
  .bss.uart_handlers
-                0x2000024c       0x14 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/uart.c.o
- .bss.fmDepth   0x20000260        0x4 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x20000260                fmDepth
- .bss.lfoPhase  0x20000264        0x4 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x20000264                lfoPhase
- .bss.k3        0x20000268        0x2 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x20000268                k3
- .bss.k2        0x2000026a        0x2 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x2000026a                k2
- .bss.k1        0x2000026c        0x2 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x2000026c                k1
+                0x20000250       0x14 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/uart.c.o
+ .bss.fmDepth   0x20000264        0x4 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x20000264                fmDepth
+ .bss.lfoPhase  0x20000268        0x4 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x20000268                lfoPhase
+ .bss.k3        0x2000026c        0x2 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x2000026c                k3
+ .bss.k2        0x2000026e        0x2 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x2000026e                k2
+ .bss.k1        0x20000270        0x2 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x20000270                k1
  .bss.crushedSample
-                0x2000026e        0x2 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x2000026e                crushedSample
+                0x20000272        0x2 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x20000272                crushedSample
  .bss.holdCounter
-                0x20000270        0x4 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x20000270                holdCounter
- .bss.readIndex
                 0x20000274        0x4 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x20000274                readIndex
- .bss.writeIndex
+                0x20000274                holdCounter
+ .bss.readIndex
                 0x20000278        0x4 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x20000278                writeIndex
- .bss.buffer    0x2000027c      0x400 .pio/build/nucleo_f303re/src/audio.cpp.o
-                0x2000027c                buffer
+                0x20000278                readIndex
+ .bss.writeIndex
+                0x2000027c        0x4 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x2000027c                writeIndex
+ .bss.buffer    0x20000280      0x400 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x20000280                buffer
  .bss.stepDirty
-                0x2000067c        0x1 .pio/build/nucleo_f303re/src/encoder.cpp.o
-                0x2000067c                stepDirty
- *fill*         0x2000067d        0x3 
+                0x20000680        0x1 .pio/build/nucleo_f303re/src/encoder.cpp.o
+                0x20000680                stepDirty
+ *fill*         0x20000681        0x3 
  .bss.currentStep
-                0x20000680        0x4 .pio/build/nucleo_f303re/src/encoder.cpp.o
-                0x20000680                currentStep
+                0x20000684        0x4 .pio/build/nucleo_f303re/src/encoder.cpp.o
+                0x20000684                currentStep
  .bss.sampleNum
-                0x20000684        0x4 .pio/build/nucleo_f303re/src/keyboard.cpp.o
-                0x20000684                sampleNum
- .bss.sampleIndex
                 0x20000688        0x4 .pio/build/nucleo_f303re/src/keyboard.cpp.o
-                0x20000688                sampleIndex
+                0x20000688                sampleNum
+ .bss.sampleIndex
+                0x2000068c        0x4 .pio/build/nucleo_f303re/src/keyboard.cpp.o
+                0x2000068c                sampleIndex
  .bss.samplePlaying
-                0x2000068c        0x1 .pio/build/nucleo_f303re/src/keyboard.cpp.o
-                0x2000068c                samplePlaying
- *fill*         0x2000068d        0x3 
+                0x20000690        0x1 .pio/build/nucleo_f303re/src/keyboard.cpp.o
+                0x20000690                samplePlaying
+ *fill*         0x20000691        0x3 
  .bss.audioTimer
-                0x20000690        0x4 .pio/build/nucleo_f303re/src/main.cpp.o
-                0x20000690                audioTimer
- .bss.Wire      0x20000694       0xe4 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x20000694                Wire
+                0x20000694        0x4 .pio/build/nucleo_f303re/src/main.cpp.o
+                0x20000694                audioTimer
+ .bss.Wire      0x20000698       0xe4 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x20000698                Wire
  .bss.i2c_handles
-                0x20000778        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x2000077c        0xc .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
  .bss.I2C_ClockTiming
-                0x20000784       0x18 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
- .bss.Serial2   0x2000079c      0x158 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x2000079c                Serial2
- .bss.Serial1   0x200008f4      0x158 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x200008f4                Serial1
+                0x20000788       0x18 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+ .bss.Serial2   0x200007a0      0x158 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x200007a0                Serial2
+ .bss.Serial1   0x200008f8      0x158 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x200008f8                Serial1
  .bss.g_anOutputPinConfigured
-                0x20000a4c       0x20 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
-                0x20000a4c                g_anOutputPinConfigured
+                0x20000a50       0x20 .pio/build/nucleo_f303re/libFrameworkArduino.a(wiring_analog.c.o)
+                0x20000a50                g_anOutputPinConfigured
  .bss.__malloc_sbrk_start
-                0x20000a6c        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
-                0x20000a6c                __malloc_sbrk_start
- .bss.__malloc_free_list
                 0x20000a70        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
-                0x20000a70                __malloc_free_list
- .bss.__sf      0x20000a74      0x138 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
-                0x20000a74                __sf
- .bss.errno     0x20000bac        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reent.o)
-                0x20000bac                errno
+                0x20000a70                __malloc_sbrk_start
+ .bss.__malloc_free_list
+                0x20000a74        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
+                0x20000a74                __malloc_free_list
+ .bss.__sf      0x20000a78      0x138 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+                0x20000a78                __sf
+ .bss.errno     0x20000bb0        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reent.o)
+                0x20000bb0                errno
  .bss.__lock___malloc_recursive_mutex
-                0x20000bb0        0x1 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
-                0x20000bb0                __lock___malloc_recursive_mutex
+                0x20000bb4        0x1 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
+                0x20000bb4                __lock___malloc_recursive_mutex
  *(COMMON)
-                0x20000bb4                        . = ALIGN (0x4)
- *fill*         0x20000bb1        0x3 
-                0x20000bb4                        _ebss = .
-                0x20000bb4                        __bss_end__ = _ebss
+                0x20000bb8                        . = ALIGN (0x4)
+ *fill*         0x20000bb5        0x3 
+                0x20000bb8                        _ebss = .
+                0x20000bb8                        __bss_end__ = _ebss
 LOAD /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crti.o
 LOAD /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 LOAD /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
@@ -5970,18 +5976,17 @@ END GROUP
 LOAD /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtend.o
 LOAD /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtn.o
 
-.noinit         0x20000bb4        0x0
-                0x20000bb4                        . = ALIGN (0x4)
-                0x20000bb4                        _snoinit = .
+.noinit         0x20000bb8        0x0
+                0x20000bb8                        . = ALIGN (0x4)
+                0x20000bb8                        _snoinit = .
  *(.noinit)
  *(.noinit*)
-                0x20000bb4                        . = ALIGN (0x4)
-                0x20000bb4                        _enoinit = .
+                0x20000bb8                        . = ALIGN (0x4)
+                0x20000bb8                        _enoinit = .
 
 ._user_heap_stack
-                0x20000bb4      0x604
+                0x20000bb8      0x600
                 0x20000bb8                        . = ALIGN (0x8)
- *fill*         0x20000bb4        0x4 
                 [!provide]                        PROVIDE (end = .)
                 0x20000bb8                        PROVIDE (_end = .)
                 0x20000db8                        . = (. + _Min_Heap_Size)
