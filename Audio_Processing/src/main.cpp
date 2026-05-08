@@ -42,7 +42,12 @@ void loop() {
         stepDirty = false;
         lpf_update(currentStep);
         Serial.print("Cutoff: ");
-        Serial.println(cutoffFreq[currentStep]);
+        Serial.print(cutoffFreq[currentStep]);
+
+        Serial.print(" | PWM1: ");
+        Serial.print(pwm1value[currentStep]);
+        Serial.print(" | PWM2: ");
+        Serial.println(pwm2value[currentStep]);
 
     }
 
