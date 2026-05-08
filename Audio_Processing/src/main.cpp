@@ -18,7 +18,8 @@
 HardwareTimer *audioTimer;
 
 void setup() {
-    Serial.begin(9600);
+
+    Serial.begin(115200);
     Serial1.begin(9600);
 
     audio_init();
@@ -52,7 +53,7 @@ void loop() {
     float srVal = crushFactor;
     float modVal = fmDepth;
 
-    lcd_update(pitchVal, srVal, modVal);
+    lcd_update(pitchVal, srVal, fmDepth);
 
     get_keyboard_data();
 

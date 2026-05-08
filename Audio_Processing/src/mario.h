@@ -2,9 +2,9 @@
 #include <stdint.h>
 
 #define SAMPLE_RATE 44100
-#define SAMPLE_LEN 88704
+#define SAMPLE_LENGTH 88704
 
-const int16_t audio_sample[SAMPLE_LEN] = {
+const int16_t audio_sample[SAMPLE_LENGTH] = {
 0, 
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 

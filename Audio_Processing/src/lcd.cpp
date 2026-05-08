@@ -29,6 +29,16 @@ void drawRowLine(int row, int symbol) {
     for (int i = 0; i < 20; i++) writeAtPos(i, row, symbol);
 }
 
+void setBaud(int baudRate) {
+    Serial1.write(0xFE);
+    delay(200);
+    Serial1.write(0x61);
+    delay(200);
+    Serial1.write(baudRate);
+    Serial1.flush();  // wait until all bytes are physically sent
+    delay(100);
+}
+
 void lcd_setup() {
     // clear screen
     Serial1.write(0xFE);
@@ -58,7 +68,16 @@ void lcd_update(float pitchVal, float srVal, float modVal) {
     String s = String(srVal,    2).substring(0, 5);
     String m = String(modVal,   2).substring(0, 5);
 
+    delay(100);
+
     writeStrAtPos(1,  2, p);
+
+    delay(100);
+
     writeStrAtPos(7,  2, s);
+
+    delay(100);
+
     writeStrAtPos(13, 2, m);
+
 }

@@ -4,6 +4,7 @@
 // D8 = Serial1 TX → LCD UART
 void lcd_setup();
 void lcd_update(float pitchVal, float srVal, float modVal);
+void setBaud(int baudRate);
 
 void goToPos(int x, int y);
 void writeAtPos(int x, int y, int symbol);

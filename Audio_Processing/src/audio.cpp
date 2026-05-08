@@ -1,6 +1,6 @@
 #include "audio.h"
 #include "keyboard.h"
-#include "sample.h"
+#include "samples.h"
 #include <HardwareTimer.h>
 #include <math.h>
 
@@ -19,6 +19,55 @@ volatile float pitchSpeed = 1.0f;
 volatile float lfoPhase   = 0.0f;
 volatile float fmDepth    = 0.0f;
 
+// Bluetooth I2S audio
+// I2S2_CK = PB13, I2S2_WS = PB12, I2S2ext_SD = PB14, I2S2SD = PB15
+// I2S Init
+static void i2s_init(void) {
+    RCC->AHBENR  |= RCC_AHBENR_GPIOBEN;
+    RCC->APB1ENR |= RCC_APB1ENR_SPI2EN;
+
+    // PB12 = WS — AF5
+    GPIOB->MODER   |=  (2 << (12*2));
+    GPIOB->OSPEEDR |=  (1 << (12*2));
+    GPIOB->PUPDR   &= ~(3 << (12*2));
+    GPIOB->AFR[1]  |=  (5 << ((12-8)*4));
+
+    // PB13 = CK — AF5
+    GPIOB->MODER   |=  (2 << (13*2));
+    GPIOB->OSPEEDR |=  (1 << (13*2));
+    GPIOB->PUPDR   &= ~(3 << (13*2));
+    GPIOB->AFR[1]  |=  (5 << ((13-8)*4));
+
+    // PB14 = I2S2ext_SD (MISO/RX) — AF5
+    GPIOB->MODER   |=  (2 << (14*2));
+    GPIOB->OSPEEDR |=  (1 << (14*2));
+    GPIOB->PUPDR   &= ~(3 << (14*2));
+    GPIOB->AFR[1]  |=  (5 << ((14-8)*4));
+
+    // SPI2 as I2S slave TX (must be enabled to use I2S2ext RX)
+    SPI2->I2SCFGR = SPI_I2SCFGR_I2SMOD |
+                    SPI_I2SCFGR_I2SCFG_0;  // 0b01 = slave transmit
+    SPI2->I2SPR   = 0;
+    SPI2->I2SCFGR |= SPI_I2SCFGR_I2SE;
+
+    // I2S2ext slave receive on PB14
+    I2S2ext->I2SCFGR = SPI_I2SCFGR_I2SMOD |
+                       SPI_I2SCFGR_I2SCFG_0;  // 0b01 = slave receive
+    I2S2ext->I2SPR   = 0;
+    I2S2ext->I2SCFGR |= SPI_I2SCFGR_I2SE;
+}
+
+static uint16_t i2s_read(void) {
+    uint32_t timeout = 10000;
+    while (!(I2S2ext->SR & SPI_SR_RXNE) && --timeout);
+    if (!timeout) return 2048;
+    int16_t left = (int16_t)I2S2ext->DR;
+    timeout = 10000;
+    while (!(I2S2ext->SR & SPI_SR_RXNE) && --timeout);
+    if (!timeout) return 2048;
+    (void)I2S2ext->DR;
+    return (uint16_t)((left + 32768) >> 4);
+}
 
 //  ADC
 static uint16_t adc_read(ADC_TypeDef *adc, uint8_t ch) {
@@ -83,6 +132,9 @@ void audio_init() {
 
     adc_init(ADC1);
     dac_init();
+    i2s_init();
+    delay(100);  // let I2S2ext lock onto the incoming clock before audio starts
+
 }
 
 // Knob modifications
@@ -92,19 +144,34 @@ void knobChanges() {
     k2 = adc_read(ADC1, 7);  // pitch     A4 ch7
     k3 = adc_read(ADC1, 6);  // FM        A5 ch6
 
+
     crushFactor = (k1 * 19) / 4095 + 1;
     pitchSpeed  = 0.5f + (k2 / 4095.0f) * 1.5f;
-    fmDepth     = (k3 / 4095.0f) * 0.8f;
+    fmDepth = (k3 / 4095.0f) * 0.8f;
+
+    if (fmDepth < 0.05f) {
+        fmDepth = 0.0f;
+    }
+
+    if (pitchSpeed > 0.92 && pitchSpeed < 1.08) {
+        pitchSpeed = 1.0f;
+    }
+
     interrupts();
 }
 
-//  ISR
+// ISR
 void audioISR() {
 
     /* --------------------------- // Live audio mods --------------------------- */
-    // audio input (ch1 = PA0 = A0)
-    int input = adc_read(ADC1, 1);
+    // Analog input (ch1 = PA0 = A0)
+    // int input = adc_read(ADC1, 1);
     // int16_t centered = (int16_t)input - 2048;
+
+    // Bluetooth input
+    int input = i2s_read();
+
+    // dac_write(input);
 
     // bitcrush
     holdCounter++;
@@ -122,12 +189,16 @@ void audioISR() {
     lfoPhase += (5.0f / SAMPLE_RATE);
     if (lfoPhase >= 1.0f) lfoPhase -= 1.0f;
     float lfo = sinf(lfoPhase * 6.28318f);
+    lfo = lfo * lfo * lfo;
     // float lfo = (lfoPhase < 0.5f) ? (lfoPhase * 4.0f - 1.0f) : (3.0f - lfoPhase * 4.0f);
+
+    float currentFM = lfo * fmDepth;
 
     // pitch + FM modulation
     float modSpeed = pitchSpeed + lfo * fmDepth;
     if (modSpeed < 0.2f) modSpeed = 0.2f;
     if (modSpeed > 2.5f) modSpeed = 2.5f;
+    if (modSpeed < 0.05f) modSpeed = 0.0f;
 
     // read ring buffer with interpolation
     readIndex += modSpeed;
@@ -143,18 +214,18 @@ void audioISR() {
     /* ----------------------------- // Sample audio ---------------------------- */
 
     // --- sample playback path ---
-    int16_t sampleOut = 0;
+    uint16_t sampleOut = 2048;
     if (samplePlaying) {
-        sampleOut = sample[sampleIndex] - 2048;  // center it
+        sampleOut = (audioSamples[sampleNum][sampleIndex] >> 4) + 2048;
         sampleIndex++;
-        if (sampleIndex >= SAMPLE_LENGTH) {
+        if (sampleIndex >= sampleLengths[sampleNum]) {
             sampleIndex = 0;
-            samplePlaying = false;  // or loop: sampleIndex = 0
+            samplePlaying = false;
         }
     }
 
     // --- mix ---
-    int32_t mixed = ((int32_t)(liveOut) + sampleOut) / 2;
+    int32_t mixed = ((int32_t)(liveOut) + sampleOut) - 2048;
     if (mixed > 4095) mixed = 4095;
     if (mixed < 0)    mixed = 0;
     dac_write((uint16_t)mixed);

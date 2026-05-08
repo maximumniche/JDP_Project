@@ -2,6 +2,7 @@
 
 volatile bool samplePlaying = false;
 volatile int sampleIndex = 0;
+volatile int sampleNum = 0;
 
 void keyboard_init() {
     // SDA = PB9
@@ -18,22 +19,14 @@ void get_keyboard_data() {
 
         char c = Wire.read();
 
-        if (c == 0x31) {
-            Serial.println("1 pressed");
-            samplePlaying = true;
-            sampleIndex = 0;
-            // int input = adc_read(ADC1, 1);
+        for (int i=0; i < 10; i++) {
+            if (c == (i + '0')) {
+                samplePlaying = true;
+                sampleIndex = 0;
+                sampleNum = i;
+            }
         }
-        else if (c == 0x32) {
-            Serial.println("2 pressed");
-            // int input = adc_read(ADC1, 1);
-        }
-        else if (c != 0) {
-            Serial.print("Key: ");
-            Serial.println(c);
-            Serial.print("ASCII: ");
-            Serial.println((int)c);
-        }
+
     }
 
 }
