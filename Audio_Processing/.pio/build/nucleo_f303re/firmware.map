@@ -5447,7 +5447,7 @@ Linker script and memory map
 .iplt           0x0800a178        0x0
  .iplt          0x0800a178        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x0800a178     0xa26c
+.rodata         0x0800a178    0x4f1a0
                 0x0800a178                        . = ALIGN (0x4)
  *(.rodata)
  .rodata        0x0800a178       0x10 .pio/build/nucleo_f303re/src/lcd.cpp.o
@@ -5505,113 +5505,114 @@ Linker script and memory map
                 0x0800a990       0x10 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/system_stm32yyxx.c.o
                 0x0800a990                AHBPrescTable
  .rodata._ZL12audioSamples
-                0x0800a9a0     0x9480 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x0800a9a0    0x4e3ae .pio/build/nucleo_f303re/src/audio.cpp.o
+ *fill*         0x08058d4e        0x2 
  .rodata._ZL13sampleLengths
-                0x08013e20        0x8 .pio/build/nucleo_f303re/src/audio.cpp.o
+                0x08058d50        0xc .pio/build/nucleo_f303re/src/audio.cpp.o
  .rodata._Z9lcd_setupv.str1.1
-                0x08013e28       0x14 .pio/build/nucleo_f303re/src/lcd.cpp.o
+                0x08058d5c       0x14 .pio/build/nucleo_f303re/src/lcd.cpp.o
  .rodata.pwm2value
-                0x08013e3c       0x40 .pio/build/nucleo_f303re/src/lpf.cpp.o
-                0x08013e3c                pwm2value
+                0x08058d70       0x40 .pio/build/nucleo_f303re/src/lpf.cpp.o
+                0x08058d70                pwm2value
  .rodata.pwm1value
-                0x08013e7c       0x40 .pio/build/nucleo_f303re/src/lpf.cpp.o
-                0x08013e7c                pwm1value
+                0x08058db0       0x40 .pio/build/nucleo_f303re/src/lpf.cpp.o
+                0x08058db0                pwm1value
  .rodata.cutoffFreq
-                0x08013ebc       0x40 .pio/build/nucleo_f303re/src/lpf.cpp.o
-                0x08013ebc                cutoffFreq
+                0x08058df0       0x40 .pio/build/nucleo_f303re/src/lpf.cpp.o
+                0x08058df0                cutoffFreq
  .rodata.setup.str1.1
-                0x08013efc        0x6 .pio/build/nucleo_f303re/src/main.cpp.o
+                0x08058e30        0x6 .pio/build/nucleo_f303re/src/main.cpp.o
  .rodata.loop.str1.1
-                0x08013f02        0x9 .pio/build/nucleo_f303re/src/main.cpp.o
- *fill*         0x08013f0b        0x1 
+                0x08058e36        0x9 .pio/build/nucleo_f303re/src/main.cpp.o
+ *fill*         0x08058e3f        0x1 
  .rodata._ZTV7TwoWire
-                0x08013f0c       0x2c .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x08013f0c                vtable for TwoWire
+                0x08058e40       0x2c .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08058e40                vtable for TwoWire
  .rodata.I2C_Charac
-                0x08013f38       0x54 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
+                0x08058e6c       0x54 .pio/build/nucleo_f303re/libf70/libWire.a(twi.c.o)
  .rodata.CSWTCH.73
-                0x08013f8c        0xc .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08058ec0        0xc .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
  .rodata.CSWTCH.72
-                0x08013f98        0x5 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
- *fill*         0x08013f9d        0x3 
+                0x08058ecc        0x5 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+ *fill*         0x08058ed1        0x3 
  .rodata._ZTV14HardwareSerial
-                0x08013fa0       0x2c .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08013fa0                vtable for HardwareSerial
+                0x08058ed4       0x2c .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08058ed4                vtable for HardwareSerial
  .rodata._ZN5Print7printlnEv.str1.1
-                0x08013fcc        0x3 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
+                0x08058f00        0x3 .pio/build/nucleo_f303re/libFrameworkArduino.a(Print.cpp.o)
  .rodata._ZNK6String9substringEjj.str1.1
-                0x08013fcf        0x3 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
+                0x08058f03        0x3 .pio/build/nucleo_f303re/libFrameworkArduino.a(WString.cpp.o)
                                   0x1 (size before relaxing)
  .rodata.dtostrf.str1.1
-                0x08013fcf       0x10 .pio/build/nucleo_f303re/libFrameworkArduino.a(dtostrf.c.o)
+                0x08058f03       0x10 .pio/build/nucleo_f303re/libFrameworkArduino.a(dtostrf.c.o)
                                  0x1e (size before relaxing)
- *fill*         0x08013fdf        0x1 
+ *fill*         0x08058f13        0x1 
  .rodata.npio2_hw
-                0x08013fe0       0x80 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_rem_pio2.o)
+                0x08058f14       0x80 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_rem_pio2.o)
  .rodata.two_over_pi
-                0x08014060      0x318 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_rem_pio2.o)
- .rodata.PIo2   0x08014378       0x2c /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_rem_pio2.o)
+                0x08058f94      0x318 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_rem_pio2.o)
+ .rodata.PIo2   0x080592ac       0x2c /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_rem_pio2.o)
  .rodata.init_jk
-                0x080143a4        0xc /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_rem_pio2.o)
+                0x080592d8        0xc /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-kf_rem_pio2.o)
  .rodata._svfprintf_r.str1.1
-                0x080143b0       0x11 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
+                0x080592e4       0x11 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
  .rodata._printf_i.str1.1
-                0x080143c1       0x22 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
-                0x080143e4                        . = ALIGN (0x4)
- *fill*         0x080143e3        0x1 
+                0x080592f5       0x22 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
+                0x08059318                        . = ALIGN (0x4)
+ *fill*         0x08059317        0x1 
 
-.ARM.extab      0x080143e4        0x0
-                0x080143e4                        . = ALIGN (0x4)
+.ARM.extab      0x08059318        0x0
+                0x08059318                        . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x080143e4                        . = ALIGN (0x4)
+                0x08059318                        . = ALIGN (0x4)
 
-.ARM            0x080143e4        0x8
-                0x080143e4                        . = ALIGN (0x4)
-                0x080143e4                        __exidx_start = .
+.ARM            0x08059318        0x8
+                0x08059318                        . = ALIGN (0x4)
+                0x08059318                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x080143e4        0x8 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strlen.o)
- .ARM.exidx     0x080143ec        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
+ .ARM.exidx     0x08059318        0x8 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strlen.o)
+ .ARM.exidx     0x08059320        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
                                   0x8 (size before relaxing)
-                0x080143ec                        __exidx_end = .
-                0x080143ec                        . = ALIGN (0x4)
+                0x08059320                        __exidx_end = .
+                0x08059320                        . = ALIGN (0x4)
 
-.preinit_array  0x080143ec        0x0
-                0x080143ec                        . = ALIGN (0x4)
-                0x080143ec                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08059320        0x0
+                0x08059320                        . = ALIGN (0x4)
+                0x08059320                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x080143ec                        PROVIDE (__preinit_array_end = .)
-                0x080143ec                        . = ALIGN (0x4)
+                0x08059320                        PROVIDE (__preinit_array_end = .)
+                0x08059320                        . = ALIGN (0x4)
 
-.init_array     0x080143ec       0x14
-                0x080143ec                        . = ALIGN (0x4)
-                0x080143ec                        PROVIDE (__init_array_start = .)
+.init_array     0x08059320       0x14
+                0x08059320                        . = ALIGN (0x4)
+                0x08059320                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00101
-                0x080143ec        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(main.cpp.o)
+                0x08059320        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(main.cpp.o)
  *(.init_array*)
- .init_array    0x080143f0        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .init_array    0x080143f4        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/interrupt.cpp.o
- .init_array    0x080143f8        0x4 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
- .init_array    0x080143fc        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
-                0x08014400                        PROVIDE (__init_array_end = .)
-                0x08014400                        . = ALIGN (0x4)
+ .init_array    0x08059324        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .init_array    0x08059328        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/interrupt.cpp.o
+ .init_array    0x0805932c        0x4 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+ .init_array    0x08059330        0x4 .pio/build/nucleo_f303re/libFrameworkArduino.a(HardwareSerial.cpp.o)
+                0x08059334                        PROVIDE (__init_array_end = .)
+                0x08059334                        . = ALIGN (0x4)
 
-.fini_array     0x08014400        0xc
-                0x08014400                        . = ALIGN (0x4)
-                0x08014400                        PROVIDE (__fini_array_start = .)
+.fini_array     0x08059334        0xc
+                0x08059334                        . = ALIGN (0x4)
+                0x08059334                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08014400        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .fini_array    0x08014404        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/interrupt.cpp.o
- .fini_array    0x08014408        0x4 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
-                0x0801440c                        PROVIDE (__fini_array_end = .)
-                0x0801440c                        . = ALIGN (0x4)
-                0x0801440c                        _sidata = LOADADDR (.data)
+ .fini_array    0x08059334        0x4 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x08059338        0x4 .pio/build/nucleo_f303re/SrcWrapper/src/stm32/interrupt.cpp.o
+ .fini_array    0x0805933c        0x4 .pio/build/nucleo_f303re/libf70/libWire.a(Wire.cpp.o)
+                0x08059340                        PROVIDE (__fini_array_end = .)
+                0x08059340                        . = ALIGN (0x4)
+                0x08059340                        _sidata = LOADADDR (.data)
 
-.rel.dyn        0x0801440c        0x0
- .rel.iplt      0x0801440c        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x08059340        0x0
+ .rel.iplt      0x08059340        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.data           0x20000000       0xc0 load address 0x0801440c
+.data           0x20000000       0xc0 load address 0x08059340
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
@@ -5660,11 +5661,11 @@ Linker script and memory map
                 0x200000c0                        . = ALIGN (0x4)
                 0x200000c0                        _edata = .
 
-.igot.plt       0x200000c0        0x0 load address 0x080144cc
+.igot.plt       0x200000c0        0x0 load address 0x08059400
  .igot.plt      0x200000c0        0x0 /home/imadk/.platformio/packages/toolchain-gccarmnoneeabi/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 0x200000c0                        . = ALIGN (0x4)
 
-.bss            0x200000c0      0xaf4 load address 0x080144cc
+.bss            0x200000c0      0xaf4 load address 0x08059400
                 0x200000c0                        _sbss = .
                 0x200000c0                        __bss_start__ = _sbss
  *(.bss)
