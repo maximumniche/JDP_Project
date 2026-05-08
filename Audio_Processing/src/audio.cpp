@@ -1,4 +1,6 @@
 #include "audio.h"
+#include "keyboard.h"
+#include "sample.h"
 #include <HardwareTimer.h>
 #include <math.h>
 
@@ -99,9 +101,10 @@ void knobChanges() {
 //  ISR
 void audioISR() {
 
+    /* --------------------------- // Live audio mods --------------------------- */
     // audio input (ch1 = PA0 = A0)
     int input = adc_read(ADC1, 1);
-    int16_t centered = (int16_t)input - 2048;
+    // int16_t centered = (int16_t)input - 2048;
 
     // bitcrush
     holdCounter++;
@@ -134,10 +137,26 @@ void audioISR() {
     int   i1   = (i0 + 1) % BUFFER_SIZE;
     float frac = readIndex - i0;
 
-    float out = buffer[i0] * (1.0f - frac) + buffer[i1] * frac;
+    float liveOut = buffer[i0] * (1.0f - frac) + buffer[i1] * frac;
     // out += 2048.0f;
-    if (out > 4095) out = 4095;
-    if (out < 0)    out = 0;
 
-    dac_write((uint16_t)out);
+    /* ----------------------------- // Sample audio ---------------------------- */
+
+    // --- sample playback path ---
+    int16_t sampleOut = 0;
+    if (samplePlaying) {
+        sampleOut = sample[sampleIndex] - 2048;  // center it
+        sampleIndex++;
+        if (sampleIndex >= SAMPLE_LENGTH) {
+            sampleIndex = 0;
+            samplePlaying = false;  // or loop: sampleIndex = 0
+        }
+    }
+
+    // --- mix ---
+    int32_t mixed = ((int32_t)(liveOut) + sampleOut) / 2;
+    if (mixed > 4095) mixed = 4095;
+    if (mixed < 0)    mixed = 0;
+    dac_write((uint16_t)mixed);
+
 }

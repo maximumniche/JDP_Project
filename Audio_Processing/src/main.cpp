@@ -13,6 +13,7 @@
 #include "encoder.h"
 #include "lpf.h"
 #include "lcd.h"
+#include "keyboard.h"
 
 HardwareTimer *audioTimer;
 
@@ -24,6 +25,7 @@ void setup() {
     encoder_init();
     lpf_init();
     lcd_setup();
+    keyboard_init();
 
     Serial.println("Ready");
 
@@ -51,6 +53,8 @@ void loop() {
     float modVal = fmDepth;
 
     lcd_update(pitchVal, srVal, modVal);
+
+    get_keyboard_data();
 
     delay(50);
 }
