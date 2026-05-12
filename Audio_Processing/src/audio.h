@@ -14,8 +14,9 @@ extern volatile float fmDepth;
 
 extern volatile int useAnalog;
 
+extern void recordAudio();
+
 static void i2s_init(void);
-void SPI2_IRQHandler(void);
 
 
 // raw knob values for LCD display

@@ -20,6 +20,10 @@ volatile float lfoPhase   = 0.0f;
 volatile float fmDepth    = 0.0f;
 volatile int useAnalog = 1;
 
+const int recordingSampleRate = 11025;
+const int recordingLength = 30000;
+int16_t recordingAudio[recordingLength];
+
 // Bluetooth I2S audio
 // I2S2_CK = PB13, I2S2_WS = PB12, I2S2ext_SD = PB14, I2S2SD = PB15
 // I2S Init
@@ -58,7 +62,9 @@ static void i2s_init(void) {
     I2S2ext->I2SCFGR |= SPI_I2SCFGR_I2SE;
 }
 
+// Read I2S data from a left stereo
 static uint16_t i2s_read(void) {
+
     uint32_t timeout = 10000;
     while (!(I2S2ext->SR & SPI_SR_RXNE) && --timeout);
     if (!timeout) return 2048;
@@ -68,6 +74,7 @@ static uint16_t i2s_read(void) {
     if (!timeout) return 2048;
     (void)I2S2ext->DR;
     return (uint16_t)((left + 32768) >> 4);
+    
 }
 
 //  ADC
@@ -122,16 +129,20 @@ static inline void dac_write(uint16_t v) {
 void audio_init() {
     // GPIO + ADC clocks
     RCC->AHBENR |= RCC_AHBENR_GPIOAEN | RCC_AHBENR_ADC12EN;
+    RCC->AHBENR |= RCC_AHBENR_GPIOBEN | RCC_AHBENR_ADC34EN;
 
     // analog pins
     GPIOA->MODER |= (0x3 << (0 * 2));  // A0  audio in
     GPIOA->MODER |= (0x3 << (1 * 2));  // A1  bitcrush knob
     GPIOA->MODER |= (0x3 << (4 * 2));  // A4  pitch knob
     GPIOA->MODER |= (0x3 << (5 * 2));  // A5  FM knob
+    GPIOB->MODER |= (0x3 << (0 * 2));  // PB0/A3 mic in
 
     ADC12_COMMON->CCR = ADC12_CCR_CKMODE_0;
+    ADC34_COMMON->CCR = ADC34_CCR_CKMODE_0;
 
     adc_init(ADC1);
+    adc_init(ADC3);
     dac_init();
     i2s_init();
     delay(100);  // let I2S2ext lock onto the incoming clock before audio starts
@@ -152,15 +163,28 @@ void knobChanges() {
 
     useAnalog = digitalRead(PB7);
 
+    // Anchor mod for normality
     if (fmDepth < 0.08f) {
         fmDepth = 0.0f;
     }
 
+    // Anchor pitch for normality
     if (pitchSpeed > 0.90 && pitchSpeed < 1.10) {
         pitchSpeed = 1.0f;
     }
 
     interrupts();
+}
+
+void recordAudio() {
+    noInterrupts();  // stop ISR
+    
+    for (int i = 0; i < recordingLength; i++) {
+        recordingAudio[i] = adc_read(ADC3, 12);
+        delayMicroseconds(1000000 / recordingSampleRate);  // maintain sample rate
+    }
+    
+    interrupts();  // restart ISR
 }
 
 // ISR
@@ -170,6 +194,7 @@ void audioISR() {
     // Analog input (ch1 = PA0 = A0)
     // int input = adc_read(ADC1, 1);
     // int16_t centered = (int16_t)input - 2048;
+    
 
     // Switch between I2S bluetooth input and analog input
     int input = useAnalog ? adc_read(ADC1, 1) : i2s_read();
@@ -212,14 +237,15 @@ void audioISR() {
     float frac = readIndex - i0;
 
     float liveOut = buffer[i0] * (1.0f - frac) + buffer[i1] * frac;
+    liveOut -= 2048;
     // out += 2048.0f;
 
     /* ----------------------------- // Sample audio ---------------------------- */
 
     // --- sample playback path ---
-    uint16_t sampleOut = 2048;
+    int32_t sampleOut = 0;
     if (samplePlaying) {
-        sampleOut = (audioSamples[sampleNum][sampleIndex] >> 4) + 2048;
+        sampleOut = (audioSamples[sampleNum][sampleIndex] >> 4);
         sampleIndex++;
         if (sampleIndex >= sampleLengths[sampleNum]) {
             sampleIndex = 0;
@@ -227,8 +253,23 @@ void audioISR() {
         }
     }
 
+
+    /* ----------------------------- // Playing recorded audio ---------------------------- */
+
+    // --- Recording playback path ---
+    int32_t recordOut = 0;
+    if (playing) {
+
+        recordOut = recordingAudio[playbackIndex] - 2048;
+        playbackIndex++;
+        if (playbackIndex >= recordingLength) {
+            playbackIndex = 0;
+            playing = false;
+        }
+    }
+
     // --- mix ---
-    int32_t mixed = ((int32_t)(liveOut) + sampleOut) - 2048;
+    int32_t mixed = ((int32_t)(liveOut) + sampleOut) + 2048;
     if (mixed > 4095) mixed = 4095;
     if (mixed < 0)    mixed = 0;
     dac_write((uint16_t)mixed);
