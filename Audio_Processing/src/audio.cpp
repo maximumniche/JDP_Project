@@ -152,9 +152,9 @@ void audio_init() {
 // Knob modifications
 void knobChanges() {
     noInterrupts();
-    k1 = adc_read(ADC1, 2);  // bitcrush  A1 ch2
-    k2 = adc_read(ADC1, 7);  // pitch     A4 ch7
-    k3 = adc_read(ADC1, 6);  // FM        A5 ch6
+    k1 = adc_read(ADC1, 2);  // bitcrush on A1 ch2
+    k2 = adc_read(ADC1, 7);  // pitch on A4 ch7
+    k3 = adc_read(ADC1, 6);  // FM on A5 ch6
 
 
     crushFactor = (k1 * 19) / 4095 + 1;

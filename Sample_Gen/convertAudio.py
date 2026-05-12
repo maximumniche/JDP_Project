@@ -3,7 +3,7 @@ import numpy as np
 import sys
 
 OUTPUT_FILE = "samples.h"
-TARGET_RATE = 11025
+TARGET_RATE = 30000
 
 samplesList = []
 
@@ -29,7 +29,7 @@ with open(OUTPUT_FILE, "w") as f:
     f.write(f"#define NUM_SAMPLES {NUM_SAMPLES}\n")
     f.write(f"#define MAX_SAMPLE_LEN {MAX_LEN}\n\n")
 
-    # lengths array
+    # Array with sample lengths
     f.write("const uint32_t sampleLengths[NUM_SAMPLES] = {\n")
 
     for i, s in enumerate(samplesList):
@@ -43,7 +43,7 @@ with open(OUTPUT_FILE, "w") as f:
 
     f.write("};\n\n")
 
-    # true 2D array
+    # 2D Array w/ every sample array
     f.write("const int16_t audioSamples[NUM_SAMPLES][MAX_SAMPLE_LEN] = {\n")
 
     for sampleIdx, samples in enumerate(samplesList):
@@ -55,7 +55,7 @@ with open(OUTPUT_FILE, "w") as f:
             if i < len(samples):
                 v = int(samples[i])
             else:
-                v = 0   # pad shorter samples
+                v = 0 # pad shorter samples
 
             f.write(str(v))
 
